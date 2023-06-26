@@ -1,8 +1,10 @@
 import 'reflect-metadata';
 
-import { DynamicModule, Module, OnApplicationBootstrap, Provider } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
-import { ZodSchema } from 'zod';
+import { DynamicModule, Logger, Module, OnApplicationBootstrap, Provider } from '@nestjs/common';
+import * as dotenv from 'dotenv';
+import { existsSync, readFileSync } from 'fs';
+import { resolve } from 'path';
+import { z, ZodSchema } from 'zod';
 
 export interface ExtraModuleOptions {
   global?: boolean;
@@ -39,7 +41,6 @@ export function Env(key: string, params?: EnvParams) {
 }
 
 interface ProcessEnvParams {
-  allowDuplicated?: boolean; // 다른 config와 겹쳐도 괜찮은지 여부
   process?: boolean; // process.env에 심기
   zod: ZodSchema;
 }
@@ -51,11 +52,14 @@ export function ProcessEnv(key: string, params?: ProcessEnvParams) {
 
     // nestjs 에서 내부적으로 미리 세팅해둔 메타데이터로서, 해당 프로퍼티의 type construecto을 가져올 수 있다.
     const typeConstructor = Reflect.getMetadata('design:type', target, propertyName);
+    const value = env === undefined ? validated : castValue(env, typeConstructor);
+    // prevent from deleting or changing
+    Object.defineProperty(target, propertyName, { configurable: false, value });
 
-    Object.defineProperty(target, propertyName, {
-      configurable: false, // prevent from deleting or changing
-      value: env === undefined ? validated : castValue(env, typeConstructor),
-    });
+    if (params.process) {
+      process.env[key] = value;
+    }
+    process.env[`konfig::${(target as any).name}::${key}`] = value;
   };
 }
 
@@ -70,14 +74,18 @@ function castValue(value: string | undefined, targetConstructor: any) {
 }
 
 interface ModuleOptions {
-  envFilePath?: string[];
+  envFilePaths?: string[];
+  overwrite?: boolean; // 여러개의 env파일이 있을때, 덮어쓸지 여부
+  allowDuplicated?: boolean; // 다른 config와 겹쳐도 괜찮은지 여부
 }
 
 @Module({})
 export class KonfigModule implements OnApplicationBootstrap {
+  private static allowDuplicated: boolean;
+
   static forRoot(options: ModuleOptions, extras?: ExtraModuleOptions): DynamicModule {
-    // TODO: 여기서 dotenv를 불러주면될듯
-    // 이거는 @nestjs/config를 밴치마킹하면 어떨까
+    this.loadEnvFile(options.envFilePaths);
+    this.allowDuplicated = options.allowDuplicated;
 
     return {
       module: KonfigModule,
@@ -93,8 +101,47 @@ export class KonfigModule implements OnApplicationBootstrap {
     };
   }
 
+  private static loadEnvFile(envFilePaths?: string[], verbose?: boolean): Record<string, any> {
+    envFilePaths = envFilePaths ?? [resolve(process.cwd(), '.env')];
+
+    let config: ReturnType<typeof dotenv.parse> = {};
+
+    for (const envFilePath of envFilePaths) {
+      if (existsSync(envFilePath)) {
+        if (verbose) {
+          Logger.log(`[KonfigModule] Loading environment variables from ${envFilePath}`);
+        }
+        config = Object.assign(dotenv.parse(readFileSync(envFilePath)), config);
+        break; // 이걸뺄까말까??
+      }
+    }
+    return config;
+  }
+
   onApplicationBootstrap() {
-    // 여기서 모든 임시 변수 정리
-    // process.env.
+    if (!KonfigModule.allowDuplicated) {
+      Object.keys(process.env)
+        .filter((key) => key.startsWith('konfig::')) // konfig::DatabaseConfig::DB_HOST
+        .map((key) => {
+          delete process.env[key]; // clean up
+          return key.split('::');
+        })
+        .map((splitted, index, array) => ({
+          env: splitted[2],
+          configNames: array.filter((_, idx) => idx !== index).flatMap((val) => (val[2] === splitted[2] ? val[1] : [])),
+        }))
+        .filter(({ configNames }) => configNames.length > 1)
+        .forEach(({ env, configNames }) => {
+          throw new Error(`Duplicated environment variable found: ${env} in ${configNames.join(', ')}`);
+        });
+    }
   }
 }
+
+// @Injectable()
+// export class DatabaseConfig {
+//   @ProcessEnv('DB_HOST', { zod: z.string() })
+//   databaseHost: string;
+// }
+
+// KonfigModule.forFeature([DatabaseConfig]);
