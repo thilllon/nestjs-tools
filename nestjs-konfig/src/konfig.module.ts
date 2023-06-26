@@ -1,10 +1,10 @@
 import 'reflect-metadata';
 
-import { DynamicModule, Logger, Module, OnApplicationBootstrap, Provider } from '@nestjs/common';
+import { DynamicModule, Injectable, Logger, Module, OnApplicationBootstrap, Provider } from '@nestjs/common';
 import * as dotenv from 'dotenv';
 import { existsSync, readFileSync } from 'fs';
 import { resolve } from 'path';
-import { z, ZodSchema } from 'zod';
+import { ZodSchema, z } from 'zod';
 
 export interface ExtraModuleOptions {
   global?: boolean;
@@ -16,49 +16,53 @@ export class EnvVarNotFoundException extends Error {
   }
 }
 
-interface EnvParams {
-  default?: string | number | boolean | object;
-}
+// interface EnvParams {
+//   default?: string | number | boolean | object;
+// }
 
-export function Env(key: string, params?: EnvParams) {
-  const { default: defaultValue } = params || {};
+// export function Env(key: string, params?: EnvParams) {
+//   const { default: defaultValue } = params || {};
 
-  return (target: object, propertyName: string) => {
-    const env = process.env[key];
+//   return (target: object, propertyName: string) => {
+//     const env = process.env[key];
 
-    if (env === undefined && defaultValue === undefined) {
-      throw new EnvVarNotFoundException(key);
-    }
+//     if (env === undefined && defaultValue === undefined) {
+//       throw new EnvVarNotFoundException(key);
+//     }
 
-    const typeConstructor = Reflect.getMetadata('design:type', target, propertyName);
+//     const typeConstructor = Reflect.getMetadata('design:type', target, propertyName);
 
-    Object.defineProperty(target, propertyName, {
-      enumerable: true,
-      configurable: false,
-      value: env === undefined ? defaultValue : castValue(env, typeConstructor),
-    });
-  };
-}
+//     Object.defineProperty(target, propertyName, {
+//       enumerable: true,
+//       configurable: false,
+//       value: env === undefined ? defaultValue : castValue(env, typeConstructor),
+//     });
+//   };
+// }
+
+type Validator = {
+  parse: (value: string) => any;
+};
 
 interface ProcessEnvParams {
-  process?: boolean; // process.env에 심기
-  zod: ZodSchema;
+  process?: boolean; // process.env에 심기. 기본값은 true
+  // validate?: ZodSchema;
+  validate?: Validator;
 }
 
 export function ProcessEnv(key: string, params?: ProcessEnvParams) {
   return (target: object, propertyName: string) => {
-    const env = process.env[key];
-    const validated = params.zod.parse(env);
-
+    const envValue = process.env[key];
     // nestjs 에서 내부적으로 미리 세팅해둔 메타데이터로서, 해당 프로퍼티의 type construecto을 가져올 수 있다.
     const typeConstructor = Reflect.getMetadata('design:type', target, propertyName);
-    const value = env === undefined ? validated : castValue(env, typeConstructor);
-    // prevent from deleting or changing
-    Object.defineProperty(target, propertyName, { configurable: false, value });
+    const value = params?.validate?.parse(envValue ?? castValue(envValue, typeConstructor)) ?? envValue;
+    // falsy `configurable` option prevents from deleting or changing
+    Object.defineProperty(target, propertyName, { value, configurable: false });
 
-    if (params.process) {
+    if (params.process ?? true) {
       process.env[key] = value;
     }
+
     process.env[`konfig::${(target as any).name}::${key}`] = value;
   };
 }
@@ -138,10 +142,19 @@ export class KonfigModule implements OnApplicationBootstrap {
   }
 }
 
-// @Injectable()
-// export class DatabaseConfig {
-//   @ProcessEnv('DB_HOST', { zod: z.string() })
-//   databaseHost: string;
-// }
+@Injectable()
+export class DatabaseConfig {
+  @ProcessEnv('DATABASE_HOST', {
+    process: false,
+    validate: z.string().default('localhost'),
+  })
+  host: string;
+
+  @ProcessEnv('DATABASE_PORT', {
+    process: false,
+    validate: z.number().default(3306),
+  })
+  port: number;
+}
 
 // KonfigModule.forFeature([DatabaseConfig]);
