@@ -1,0 +1,16 @@
+{
+  "name": "nestjs-strict-config",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "scripts": {
+    "release": "release-it"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.3.0",
+    "release-it": "^15.11.0",
+    "typescript": "^5.1.3"
+  }
+}
