@@ -9,9 +9,8 @@ import { AwsS3Module } from './aws-s3.module';
 import { getClientToken } from './aws-s3.utils';
 
 describe('S3Module', () => {
-  dotenv.config({ path: '.env.test' });
-  const accessKeyId = process.env.AWS_S3_ACCESS_KEY as string;
-  const secretAccessKey = process.env.AWS_S3_SECRET_ACCESS_KEY as string;
+  const accessKeyId = (process.env.AWS_S3_ACCESS_KEY = 'KEY');
+  const secretAccessKey = (process.env.AWS_S3_SECRET_ACCESS_KEY = 'SECRET');
 
   @Injectable()
   class FooService implements ModuleOptionsFactory {

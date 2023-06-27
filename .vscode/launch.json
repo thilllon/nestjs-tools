@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "request": "launch",
+      "type": "node",
+      "name": "vscode-jest-tests.v2",
+      "program": "${workspaceFolder}/node_modules/.bin/jest",
+      "windows": {
+        "program": "${workspaceFolder}/node_modules/jest/bin/jest"
+      }
+    }
+  ]
+}
+ 
