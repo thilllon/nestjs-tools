@@ -7,7 +7,10 @@ import { CloudinaryService } from './cloudinary.service';
   providers: [CloudinaryService],
   exports: [CloudinaryService],
 })
-export class CloudinaryModule extends ConfigurableModuleClass implements OnModuleInit {
+export class CloudinaryModule
+  extends ConfigurableModuleClass
+  implements OnModuleInit
+{
   constructor(private readonly service: CloudinaryService) {
     super();
   }
