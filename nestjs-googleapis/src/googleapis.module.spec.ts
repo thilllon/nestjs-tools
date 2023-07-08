@@ -1,7 +1,6 @@
 import { writeFileSync } from 'fs';
 import * as path from 'path';
 
-import { beforeAll, describe, expect, test } from '@jest/globals';
 import { Injectable, Logger } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
 import * as dotenv from 'dotenv';
@@ -15,7 +14,10 @@ describe('GoogleapisModule', () => {
 
   const email = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
   const key = process.env.GOOGLE_SERVICE_ACCOUNT_KEY;
-  const scopes = ['https://www.googleapis.com/auth/drive', 'https://www.googleapis.com/auth/spreadsheets'];
+  const scopes = [
+    'https://www.googleapis.com/auth/drive',
+    'https://www.googleapis.com/auth/spreadsheets',
+  ];
 
   @Injectable()
   class FooService {
@@ -66,7 +68,7 @@ describe('GoogleapisModule', () => {
     fooService = module.get(FooService);
   });
 
-  // test('asdf', async () => {
+  // test('google', async () => {
   //   const auth = new google.auth.JWT({ email, key, scopes });
   //   const googleApis = new GoogleApis({ auth });
   //   const drive = googleApis.drive({ version: 'v3' });

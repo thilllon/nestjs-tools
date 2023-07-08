@@ -23,7 +23,7 @@ describe('InjectS3', () => {
   class BarService {
     constructor(
       @InjectAwsS3Client('first') private firstS3: S3Client,
-      @InjectAwsS3Client('second') private secondS3: S3Client
+      @InjectAwsS3Client('second') private secondS3: S3Client,
     ) {}
 
     getFirst() {

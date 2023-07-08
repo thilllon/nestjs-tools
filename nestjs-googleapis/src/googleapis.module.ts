@@ -1,14 +1,15 @@
 import { DynamicModule, Module, Provider, Type } from '@nestjs/common';
 import { GoogleApis, google } from 'googleapis';
 
-import { AsyncModuleOptions, ExtraModuleOptions, ModuleOptions, ModuleOptionsFactory } from './googleapis.interface';
-import { GoogleApisService } from './googleapis.service';
+import {
+  AsyncModuleOptions,
+  ExtraModuleOptions,
+  ModuleOptions,
+  ModuleOptionsFactory,
+} from './googleapis.interface';
 import { getClientToken, getOptionsToken } from './googleapis.utils';
 
-@Module({
-  providers: [GoogleApisService],
-  exports: [GoogleApisService],
-})
+@Module({})
 export class GoogleApisModule {
   static register(options: ModuleOptions, extras?: ExtraModuleOptions): DynamicModule {
     const optionsProvider: Provider = {
@@ -45,7 +46,10 @@ export class GoogleApisModule {
     };
   }
 
-  private static createAsyncProviders(options: AsyncModuleOptions, extras?: ExtraModuleOptions): Provider[] {
+  private static createAsyncProviders(
+    options: AsyncModuleOptions,
+    extras?: ExtraModuleOptions,
+  ): Provider[] {
     if (options.useClass) {
       return [
         { provide: options.useClass, useClass: options.useClass },
@@ -57,10 +61,15 @@ export class GoogleApisModule {
       return [this.createAsyncOptionsProvider(options, extras)];
     }
 
-    throw new Error('Invalid configuration. One of useClass, useExisting or useFactory must be defined.');
+    throw new Error(
+      'Invalid configuration. One of useClass, useExisting or useFactory must be defined.',
+    );
   }
 
-  private static createAsyncOptionsProvider(options: AsyncModuleOptions, extras?: ExtraModuleOptions): Provider {
+  private static createAsyncOptionsProvider(
+    options: AsyncModuleOptions,
+    extras?: ExtraModuleOptions,
+  ): Provider {
     if (options.useClass || options.useExisting) {
       return {
         provide: getOptionsToken(extras?.alias),
@@ -79,7 +88,9 @@ export class GoogleApisModule {
       };
     }
 
-    throw new Error('Invalid configuration. One of useClass, useExisting or useFactory must be defined.');
+    throw new Error(
+      'Invalid configuration. One of useClass, useExisting or useFactory must be defined.',
+    );
   }
 
   private static createClient(options: ModuleOptions) {

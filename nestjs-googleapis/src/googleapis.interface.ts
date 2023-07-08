@@ -1,7 +1,7 @@
-import { ModuleMetadata, Type } from '@nestjs/common/interfaces';
+import { ModuleMetadata, Type } from '@nestjs/common';
 import { JWTOptions } from 'google-auth-library';
 
-export type ModuleOptions = JWTOptions;
+export interface ModuleOptions extends JWTOptions {}
 
 export interface OptionsFactory {
   createOptions(): Promise<ModuleOptions> | ModuleOptions;
