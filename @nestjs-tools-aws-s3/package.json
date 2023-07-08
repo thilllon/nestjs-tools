@@ -1,6 +1,9 @@
 {
   "name": "@nestjs-tools/aws-s3",
   "version": "0.0.1",
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "dist"
   ],
