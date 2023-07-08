@@ -1,0 +1,20 @@
+{
+  "git": {
+    "commitMessage": "chore(${name}): release ${version}",
+    "push": true,
+    "commit": true,
+    "tag": true,
+    "requireCommits": false,
+    "tagName": "nestjs-graphql-pubsub-${version}",
+    "requireCleanWorkingDir": false
+  },
+  "github": {
+    "release": true,
+    "releaseName": "nestjs-graphql-pubsub-${version}",
+    "draft": true
+  },
+  "npm": {
+    "publish": true,
+    "ignoreVersion": false
+  }
+}
