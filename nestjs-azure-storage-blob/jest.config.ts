@@ -1,4 +1,6 @@
-export default {
+import { Config } from 'jest';
+
+const config: Config = {
   clearMocks: true,
   testEnvironment: 'node',
   testMatch: ['**/src/**/*.(spec|test).ts'],
@@ -7,3 +9,5 @@ export default {
     '^.+\\.(t|j)s$': 'ts-jest',
   },
 };
+
+export default config;
