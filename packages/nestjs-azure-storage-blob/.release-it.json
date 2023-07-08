@@ -1,6 +1,6 @@
 {
   "git": {
-    "commitMessage": "chore: release ${version}",
+    "commitMessage": "chore(nestjs-azure-storage-blob): release ${version}",
     "push": true,
     "commit": true,
     "tag": true,
@@ -14,12 +14,5 @@
   "npm": {
     "publish": true,
     "ignoreVersion": false
-  },
-  "plugins": {
-    "@release-it/conventional-changelog": {
-      "preset": "angular",
-      "infile": "CHANGELOG.md",
-      "header": "# Changelog"
-    }
   }
 }
