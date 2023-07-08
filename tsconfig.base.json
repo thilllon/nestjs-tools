@@ -3,7 +3,7 @@
   "compilerOptions": {
     "rootDir": ".",
     "sourceMap": true,
-    "declaration": false,
+    "declaration": true,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -16,6 +16,7 @@
     "removeComments": false,
     "baseUrl": ".",
     "outDir": "dist",
+    "isolatedModules": true,
     "paths": {}
   }
 }

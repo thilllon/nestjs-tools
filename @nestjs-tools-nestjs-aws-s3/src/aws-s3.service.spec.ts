@@ -1,9 +1,8 @@
-import { describe, expect, it } from '@jest/globals';
 import { Injectable } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
 import * as dotenv from 'dotenv';
 
-import { ModuleOptions, ModuleOptionsFactory } from './aws-s3.interface';
+import type { ModuleOptions, ModuleOptionsFactory } from './aws-s3.interface';
 import { AwsS3Module } from './aws-s3.module';
 import { AwsS3Service } from './aws-s3.service';
 import { getClientToken } from './aws-s3.utils';

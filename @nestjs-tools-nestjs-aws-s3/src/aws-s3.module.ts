@@ -1,7 +1,12 @@
 import { S3Client } from '@aws-sdk/client-s3';
 import { DynamicModule, Module, Provider, Type } from '@nestjs/common';
 
-import { AsyncModuleOptions, ExtraModuleOptions, ModuleOptions, ModuleOptionsFactory } from './aws-s3.interface';
+import type {
+  AsyncModuleOptions,
+  ExtraModuleOptions,
+  ModuleOptions,
+  ModuleOptionsFactory,
+} from './aws-s3.interface';
 import { getClientToken, getOptionsToken } from './aws-s3.utils';
 
 @Module({})
@@ -44,7 +49,10 @@ export class AwsS3Module {
     };
   }
 
-  private static createAsyncProviders(options: AsyncModuleOptions, extras?: ExtraModuleOptions): Provider[] {
+  private static createAsyncProviders(
+    options: AsyncModuleOptions,
+    extras?: ExtraModuleOptions,
+  ): Provider[] {
     if (options.useClass) {
       return [
         { provide: options.useClass, useClass: options.useClass },
@@ -56,10 +64,15 @@ export class AwsS3Module {
       return [this.createAsyncOptionsProvider(options, extras)];
     }
 
-    throw new Error('Invalid configuration. One of useClass, useExisting or useFactory must be defined.');
+    throw new Error(
+      'Invalid configuration. One of useClass, useExisting or useFactory must be defined.',
+    );
   }
 
-  private static createAsyncOptionsProvider(options: AsyncModuleOptions, extras?: ExtraModuleOptions): Provider {
+  private static createAsyncOptionsProvider(
+    options: AsyncModuleOptions,
+    extras?: ExtraModuleOptions,
+  ): Provider {
     if (options.useClass || options.useExisting) {
       return {
         provide: getOptionsToken(extras?.alias),
@@ -78,7 +91,9 @@ export class AwsS3Module {
       };
     }
 
-    throw new Error('Invalid configuration. One of useClass, useExisting or useFactory must be defined.');
+    throw new Error(
+      'Invalid configuration. One of useClass, useExisting or useFactory must be defined.',
+    );
   }
 
   private static createClient(options: ModuleOptions): S3Client {

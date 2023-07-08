@@ -1,10 +1,8 @@
 import { S3Client } from '@aws-sdk/client-s3';
-import { describe, expect, it } from '@jest/globals';
 import { Injectable } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
-import * as dotenv from 'dotenv';
 
-import { ModuleOptions, ModuleOptionsFactory } from './aws-s3.interface';
+import type { ModuleOptions, ModuleOptionsFactory } from './aws-s3.interface';
 import { AwsS3Module } from './aws-s3.module';
 import { getClientToken } from './aws-s3.utils';
 
@@ -22,7 +20,12 @@ describe('S3Module', () => {
   describe('forRoot', () => {
     it('should provide s3 client', async () => {
       const module = await Test.createTestingModule({
-        imports: [AwsS3Module.register({ credentials: { accessKeyId, secretAccessKey } }, { global: false })],
+        imports: [
+          AwsS3Module.register(
+            { credentials: { accessKeyId, secretAccessKey } },
+            { global: false },
+          ),
+        ],
       }).compile();
 
       const service = module.get<S3Client>(getClientToken());
@@ -57,7 +60,7 @@ describe('S3Module', () => {
                   },
                 }),
               },
-              { alias: 'hello' }
+              { alias: 'hello' },
             ),
           ],
           providers: [ConfigService],

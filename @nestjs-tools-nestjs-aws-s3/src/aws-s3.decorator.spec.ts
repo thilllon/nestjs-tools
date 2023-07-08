@@ -1,5 +1,4 @@
 import { S3Client } from '@aws-sdk/client-s3';
-import { beforeEach, describe, expect, test } from '@jest/globals';
 import { Injectable } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 import * as dotenv from 'dotenv';
