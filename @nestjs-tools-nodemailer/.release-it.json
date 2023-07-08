@@ -1,0 +1,20 @@
+{
+  "git": {
+    "commitMessage": "chore(${name}): release ${version}",
+    "push": true,
+    "commit": true,
+    "tag": true,
+    "requireCommits": false,
+    "tagName": "nestjs-tools-nodemailer-${version}",
+    "requireCleanWorkingDir": false
+  },
+  "github": {
+    "release": true,
+    "releaseName": "nestjs-tools-nodemailer-${version}",
+    "draft": true
+  },
+  "npm": {
+    "publish": true,
+    "ignoreVersion": false
+  }
+}
