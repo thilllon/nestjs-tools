@@ -1,5 +1,5 @@
 {
-  "name": "@nestjs-tools/nestjs-cloudinary",
+  "name": "@nestjs-tools/cloudinary",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
