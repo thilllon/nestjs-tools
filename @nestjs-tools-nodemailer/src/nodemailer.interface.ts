@@ -1,5 +1,5 @@
-import { ModuleMetadata, Type } from '@nestjs/common/interfaces';
-import { Transport, TransportOptions, SendMailOptions } from 'nodemailer';
+import { ModuleMetadata, Type } from '@nestjs/common';
+import { SendMailOptions, Transport, TransportOptions } from 'nodemailer';
 
 import type * as JSONTransport from 'nodemailer/lib/json-transport';
 import type * as SendmailTransport from 'nodemailer/lib/sendmail-transport';
@@ -8,7 +8,7 @@ import type * as SMTPPool from 'nodemailer/lib/smtp-pool';
 import type * as SMTPTransport from 'nodemailer/lib/smtp-transport';
 import type * as StreamTransport from 'nodemailer/lib/stream-transport';
 
-export type { Transport, TransportOptions, SendMailOptions };
+export type { SendMailOptions, Transport, TransportOptions };
 
 export type Mailer = Transport['mailer'];
 

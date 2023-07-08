@@ -1,5 +1,12 @@
-import { DynamicModule, Inject, Injectable, Module, OnModuleDestroy, Type } from '@nestjs/common';
-import { ModuleMetadata } from '@nestjs/common/interfaces';
+import {
+  DynamicModule,
+  Inject,
+  Injectable,
+  Module,
+  ModuleMetadata,
+  OnModuleDestroy,
+  Type,
+} from '@nestjs/common';
 import { ModuleRef } from '@nestjs/core';
 import { ConnectionConfig } from 'pg';
 import createPostgresSubscriber, { Options as PgListenOptions, Subscriber } from 'pg-listen';
@@ -93,7 +100,8 @@ export class PgListenModule implements OnModuleDestroy {
 
     return {
       provide: MODULE_OPTIONS_TOKEN,
-      useFactory: async (optionsFactory: ModuleOptionsFactory) => await optionsFactory.createModuleOptions(),
+      useFactory: async (optionsFactory: ModuleOptionsFactory) =>
+        await optionsFactory.createModuleOptions(),
       inject: [options.useExisting || options.useClass] as Type<ModuleOptionsFactory>[],
     };
   }

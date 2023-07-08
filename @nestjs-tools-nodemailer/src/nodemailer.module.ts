@@ -43,7 +43,10 @@ export class NodemailerModule {
     };
   }
 
-  private static createAsyncProviders(options: AsyncModuleOptions, extras?: ExtraModuleOptions): Provider[] {
+  private static createAsyncProviders(
+    options: AsyncModuleOptions,
+    extras?: ExtraModuleOptions,
+  ): Provider[] {
     if (options.useClass) {
       return [
         { provide: options.useClass, useClass: options.useClass },
@@ -55,10 +58,15 @@ export class NodemailerModule {
       return [this.createAsyncOptionsProvider(options, extras)];
     }
 
-    throw new Error('Invalid configuration. One of useClass, useExisting or useFactory must be defined.');
+    throw new Error(
+      'Invalid configuration. One of useClass, useExisting or useFactory must be defined.',
+    );
   }
 
-  private static createAsyncOptionsProvider(options: AsyncModuleOptions, extras?: ExtraModuleOptions): Provider {
+  private static createAsyncOptionsProvider(
+    options: AsyncModuleOptions,
+    extras?: ExtraModuleOptions,
+  ): Provider {
     if (options.useClass || options.useExisting) {
       return {
         provide: getOptionsToken(extras?.alias),
@@ -77,7 +85,9 @@ export class NodemailerModule {
       };
     }
 
-    throw new Error('Invalid configuration. One of useClass, useExisting or useFactory must be defined.');
+    throw new Error(
+      'Invalid configuration. One of useClass, useExisting or useFactory must be defined.',
+    );
   }
 
   private static createClient(options: ModuleOptions): Transporter<any> {
