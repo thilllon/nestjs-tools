@@ -5,10 +5,12 @@
     "commit": true,
     "tag": true,
     "requireCommits": false,
+    "tagName": "nestjs-azure-storage-blob-${version}",
     "requireCleanWorkingDir": false
   },
   "github": {
     "release": true,
+    "releaseName": "nestjs-azure-storage-blob-${version}",
     "draft": true
   },
   "npm": {
