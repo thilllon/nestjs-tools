@@ -5,12 +5,12 @@
     "commit": true,
     "tag": true,
     "requireCommits": false,
-    "tagName": "nestjs-googleapis-${version}",
+    "tagName": "nestjs-tools-aws-s3-${version}",
     "requireCleanWorkingDir": false
   },
   "github": {
     "release": true,
-    "releaseName": "nestjs-googleapis-${version}",
+    "releaseName": "nestjs-tools-aws-s3-${version}",
     "draft": true
   },
   "npm": {

@@ -1,5 +1,5 @@
 {
-  "name": "@nestjs-tools/nestjs-aws-s3",
+  "name": "@nestjs-tools/aws-s3",
   "version": "0.0.2",
   "files": [
     "dist"
