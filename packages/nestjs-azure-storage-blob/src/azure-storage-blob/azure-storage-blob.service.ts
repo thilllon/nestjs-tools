@@ -13,12 +13,12 @@ import {
   ServiceGenerateAccountSasUrlOptions,
 } from '@azure/storage-blob';
 import { Injectable } from '@nestjs/common';
-import { InjectStorageBlob } from './storage-blob.decorator';
+import { InjectStorageBlob } from './azure-storage-blob.decorator';
 import {
   GetAccountSasUrlResponse,
   GetBlockBlobSasUrlResponse,
   GetContainerSasUrlResponse,
-} from './storage-blob.interface';
+} from './azure-storage-blob.interface';
 
 /**
  * request headers

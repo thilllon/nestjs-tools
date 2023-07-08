@@ -4,14 +4,14 @@ import {
   MODULE_CLIENT_TOKEN,
   MODULE_CONNECTION_VARIABLE_TOKEN,
   MODULE_OPTIONS_TOKEN,
-} from './storage-blob.constants';
+} from './azure-storage-blob.constants';
 import {
   AsyncModuleOptions,
   InstantiateOptions,
   ModuleOptions,
   ModuleOptionsFactory,
-} from './storage-blob.interface';
-import { StorageBlobService } from './storage-blob.service';
+} from './azure-storage-blob.interface';
+import { StorageBlobService } from './azure-storage-blob.service';
 
 @Global()
 @Module({

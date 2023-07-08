@@ -2,8 +2,8 @@ import { BlobServiceClient } from '@azure/storage-blob';
 import { beforeEach, describe, expect, test } from '@jest/globals';
 import { Test } from '@nestjs/testing';
 import * as dotenv from 'dotenv';
-import { StorageBlobModule } from './storage-blob.module';
-import { StorageBlobService } from './storage-blob.service';
+import { StorageBlobModule } from './azure-storage-blob.module';
+import { StorageBlobService } from './azure-storage-blob.service';
 
 dotenv.config({ path: '.env.test' });
 

@@ -1,8 +1,11 @@
 .DS_Store
+
+dist
+coverage
+node_modules
+
 .env*
 !.env.example
+
 *.log
-**/coverage
-**/node_modules
-dist
 logs

@@ -28,14 +28,12 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "prepare": "husky install && chmod +x .husky/*",
     "dev": "tsx src/index.ts",
     "start": "node dist/index.js",
     "prebuild": "rm -rf dist",
     "build": "tsup",
-    "build:tsc": "tsc",
     "format": "prettier -w -l .",
-    "lint": "eslint . --fix",
+    "lint": "eslint --fix .",
     "test": "jest",
     "release": "release-it"
   },

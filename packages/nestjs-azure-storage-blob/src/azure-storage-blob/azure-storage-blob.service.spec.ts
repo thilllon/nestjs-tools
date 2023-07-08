@@ -5,8 +5,11 @@ import axios from 'axios';
 import * as dotenv from 'dotenv';
 import * as fs from 'fs';
 import * as path from 'path';
-import { MODULE_CLIENT_TOKEN, MODULE_CONNECTION_VARIABLE_TOKEN } from './storage-blob.constants';
-import { StorageBlobService } from './storage-blob.service';
+import {
+  MODULE_CLIENT_TOKEN,
+  MODULE_CONNECTION_VARIABLE_TOKEN,
+} from './azure-storage-blob.constants';
+import { StorageBlobService } from './azure-storage-blob.service';
 
 dotenv.config({ path: '.env.test' });
 

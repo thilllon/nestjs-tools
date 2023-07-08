@@ -1,1 +1,1 @@
-export * from './storage-blob/index';
+export * from './azure-storage-blob/index';
