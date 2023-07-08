@@ -1,5 +1,5 @@
 {
-  "name": "nestjs-google-oauth2",
+  "name": "nestjs-pubnub",
   "version": "0.0.1-0",
   "description": "",
   "main": "dist/index.js",
