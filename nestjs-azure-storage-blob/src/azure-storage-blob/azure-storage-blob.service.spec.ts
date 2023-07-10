@@ -9,17 +9,17 @@ import {
   MODULE_CLIENT_TOKEN,
   MODULE_CONNECTION_VARIABLE_TOKEN,
 } from './azure-storage-blob.constants';
-import { StorageBlobService } from './azure-storage-blob.service';
+import { AzureStorageBlobService } from './azure-storage-blob.service';
 
 dotenv.config({ path: '.env.test' });
 
 describe('StorageBlobService', () => {
-  let service: StorageBlobService;
+  let service: AzureStorageBlobService;
 
   beforeEach(async () => {
     const module = await Test.createTestingModule({
       providers: [
-        StorageBlobService,
+        AzureStorageBlobService,
         {
           provide: MODULE_CLIENT_TOKEN,
           useValue: BlobServiceClient.fromConnectionString(
@@ -29,7 +29,7 @@ describe('StorageBlobService', () => {
       ],
     }).compile();
 
-    service = module.get(StorageBlobService);
+    service = module.get(AzureStorageBlobService);
   });
 
   test('should be defined', () => {

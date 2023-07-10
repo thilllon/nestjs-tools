@@ -25,7 +25,7 @@ import {
  * https://learn.microsoft.com/rest/api/storageservices/put-blob#request-headers-all-blob-types
  */
 @Injectable()
-export class StorageBlobService {
+export class AzureStorageBlobService {
   private containerName?: string;
 
   constructor(

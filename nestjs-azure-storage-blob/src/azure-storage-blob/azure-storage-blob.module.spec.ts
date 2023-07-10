@@ -2,29 +2,29 @@ import { BlobServiceClient } from '@azure/storage-blob';
 import { beforeEach, describe, expect, test } from '@jest/globals';
 import { Test } from '@nestjs/testing';
 import * as dotenv from 'dotenv';
-import { StorageBlobModule } from './azure-storage-blob.module';
-import { StorageBlobService } from './azure-storage-blob.service';
+import { AzureStorageBlobModule } from './azure-storage-blob.module';
+import { AzureStorageBlobService } from './azure-storage-blob.service';
 
 dotenv.config({ path: '.env.test' });
 
 describe('initialize StorageBlobModule using `forRoot`', () => {
-  let service: StorageBlobService;
+  let service: AzureStorageBlobService;
 
   beforeEach(async () => {
     const module = await Test.createTestingModule({
       imports: [
-        StorageBlobModule.register({
+        AzureStorageBlobModule.register({
           connection: process.env.NEST_STORAGE_BLOB_CONNECTION,
         }),
       ],
     }).compile();
 
-    service = module.get<StorageBlobService>(StorageBlobService);
+    service = module.get<AzureStorageBlobService>(AzureStorageBlobService);
   });
 
   test('should be defined', async () => {
     expect(module).toBeDefined();
-    expect(service).toBeInstanceOf(StorageBlobService);
+    expect(service).toBeInstanceOf(AzureStorageBlobService);
 
     expect(service).toBeTruthy();
     expect(service.deleteFile).toBeTruthy();
@@ -33,21 +33,25 @@ describe('initialize StorageBlobModule using `forRoot`', () => {
 });
 
 describe('global StorageBlobModule', () => {
-  let service: StorageBlobService;
+  let service: AzureStorageBlobService;
 
   beforeEach(async () => {
     const module = await Test.createTestingModule({
       imports: [
-        StorageBlobModule.registerAsync({
-          useFactory: () => ({
-            connection: process.env.NEST_STORAGE_BLOB_CONNECTION,
-          }),
-          global: true,
-        }),
+        AzureStorageBlobModule.registerAsync(
+          {
+            useFactory: () => ({
+              connection: process.env.NEST_STORAGE_BLOB_CONNECTION,
+            }),
+          },
+          {
+            global: true,
+          },
+        ),
       ],
     }).compile();
 
-    service = module.get<StorageBlobService>(StorageBlobService);
+    service = module.get<AzureStorageBlobService>(AzureStorageBlobService);
   });
 
   test('should be global module', async () => {
@@ -57,12 +61,12 @@ describe('global StorageBlobModule', () => {
 });
 
 describe('initialize StorageBlobModule using `forRootAsync`', () => {
-  let service: StorageBlobService;
+  let service: AzureStorageBlobService;
 
   beforeEach(async () => {
     const module = await Test.createTestingModule({
       imports: [
-        StorageBlobModule.registerAsync({
+        AzureStorageBlobModule.registerAsync({
           useFactory: () => ({
             connection: process.env.NEST_STORAGE_BLOB_CONNECTION,
           }),
@@ -70,12 +74,12 @@ describe('initialize StorageBlobModule using `forRootAsync`', () => {
       ],
     }).compile();
 
-    service = module.get<StorageBlobService>(StorageBlobService);
+    service = module.get<AzureStorageBlobService>(AzureStorageBlobService);
   });
 
   test('', async () => {
     expect(module).toBeDefined();
-    expect(service).toBeInstanceOf(StorageBlobService);
+    expect(service).toBeInstanceOf(AzureStorageBlobService);
 
     expect(service).toBeTruthy();
     expect(service.deleteFile).toBeTruthy();
@@ -84,21 +88,25 @@ describe('initialize StorageBlobModule using `forRootAsync`', () => {
 });
 
 describe('global StorageBlobModule', () => {
-  let service: StorageBlobService;
+  let service: AzureStorageBlobService;
 
   beforeEach(async () => {
     const module = await Test.createTestingModule({
       imports: [
-        StorageBlobModule.registerAsync({
-          useFactory: () => ({
-            connection: process.env.NEST_STORAGE_BLOB_CONNECTION,
-          }),
-          global: true,
-        }),
+        AzureStorageBlobModule.registerAsync(
+          {
+            useFactory: () => ({
+              connection: process.env.NEST_STORAGE_BLOB_CONNECTION,
+            }),
+          },
+          {
+            global: true,
+          },
+        ),
       ],
     }).compile();
 
-    service = module.get<StorageBlobService>(StorageBlobService);
+    service = module.get<AzureStorageBlobService>(AzureStorageBlobService);
   });
 
   test('', async () => {

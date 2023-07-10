@@ -16,6 +16,9 @@ dependencies:
     version: 0.32.1
 
 devDependencies:
+  '@types/node':
+    specifier: ^20.4.1
+    version: 20.4.1
   typescript:
     specifier: ^5.1.5
     version: 5.1.5
@@ -46,6 +49,10 @@ packages:
       tslib: 2.5.3
       uid: 2.0.2
     dev: false
+
+  /@types/node@20.4.1:
+    resolution: {integrity: sha512-JIzsAvJeA/5iY6Y/OxZbv1lUcc8dNSE77lb2gnBH+/PJ3lFR1Ccvgwl5JWnHAkNHcRsT0TbpVOsiMKZ1F/yyJg==}
+    dev: true
 
   /base64-js@1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}

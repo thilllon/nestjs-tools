@@ -1,18 +1,16 @@
-import { S3Client } from '@aws-sdk/client-s3';
 import { DynamicModule, Module, Provider, Type } from '@nestjs/common';
+import { Transporter, createTransport } from 'nodemailer';
 
-import type {
+import {
   AsyncModuleOptions,
   ExtraModuleOptions,
   ModuleOptions,
   ModuleOptionsFactory,
-} from './aws-s3.interface';
-import { getClientToken, getOptionsToken } from './aws-s3.utils';
+} from './nodemailer.interface';
+import { getClientToken, getOptionsToken } from './nodemailer.utils';
 
 @Module({})
-export class AwsS3Module {
-  private static DEFAULT_API_VERSION = '2006-03-01';
-
+export class NodemailerModule {
   static register(options: ModuleOptions, extras?: ExtraModuleOptions): DynamicModule {
     const optionsProvider: Provider = {
       provide: getOptionsToken(extras?.alias),
@@ -25,7 +23,7 @@ export class AwsS3Module {
     };
 
     return {
-      module: AwsS3Module,
+      module: NodemailerModule,
       // FIXME: optionsProvider does not need to be exported...?
       providers: [optionsProvider, clientProvider],
       exports: [optionsProvider, clientProvider],
@@ -41,7 +39,7 @@ export class AwsS3Module {
     };
 
     return {
-      module: AwsS3Module,
+      module: NodemailerModule,
       imports: options.imports,
       providers: [...this.createAsyncProviders(options, extras), clientProvider],
       exports: [clientProvider],
@@ -87,7 +85,7 @@ export class AwsS3Module {
       return {
         provide: getOptionsToken(extras?.alias),
         useFactory: options.useFactory,
-        inject: options.inject,
+        inject: options.inject || [],
       };
     }
 
@@ -96,15 +94,7 @@ export class AwsS3Module {
     );
   }
 
-  private static createClient(options: ModuleOptions): S3Client {
-    return new S3Client({
-      apiVersion: options.apiVersion || this.DEFAULT_API_VERSION,
-      region: options.region,
-      credentials: {
-        accessKeyId: options.credentials.accessKeyId,
-        secretAccessKey: options.credentials.secretAccessKey,
-        sessionToken: options.credentials.sessionToken,
-      },
-    });
+  private static createClient(options: ModuleOptions): Transporter<any> {
+    return createTransport(options.transport, options.defaults);
   }
 }
