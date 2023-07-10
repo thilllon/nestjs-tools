@@ -1,9 +1,13 @@
-import { DynamicModule, Module, Provider, Scope } from '@nestjs/common';
-import { Type } from '@nestjs/common';
+import { DynamicModule, Module, Provider, Type } from '@nestjs/common';
 import { Octokit } from 'octokit';
 
-import { MODULE_OPTIONS_TOKEN, MODULE_CLIENT_TOKEN } from './octokit.constants';
-import { ModuleOptions, AsyncModuleOptions, ModuleOptionsFactory, ExtraModuleOptions } from './octokit.interface';
+import { MODULE_CLIENT_TOKEN, MODULE_OPTIONS_TOKEN } from './octokit.constants';
+import {
+  AsyncModuleOptions,
+  ExtraModuleOptions,
+  ModuleOptions,
+  ModuleOptionsFactory,
+} from './octokit.interface';
 
 @Module({})
 export class OctokitModule {
@@ -37,7 +41,10 @@ export class OctokitModule {
     };
   }
 
-  private static createAsyncProviders(options: AsyncModuleOptions, extras?: ExtraModuleOptions): Provider[] {
+  private static createAsyncProviders(
+    options: AsyncModuleOptions,
+    extras?: ExtraModuleOptions,
+  ): Provider[] {
     if (options.useClass) {
       return [
         { provide: options.useClass, useClass: options.useClass },
@@ -49,10 +56,15 @@ export class OctokitModule {
       return [this.createAsyncOptionsProvider(options, extras)];
     }
 
-    throw new Error('Invalid configuration. One of useClass, useExisting or useFactory must be defined.');
+    throw new Error(
+      'Invalid configuration. One of useClass, useExisting or useFactory must be defined.',
+    );
   }
 
-  private static createAsyncOptionsProvider(options: AsyncModuleOptions, extras?: ExtraModuleOptions): Provider {
+  private static createAsyncOptionsProvider(
+    options: AsyncModuleOptions,
+    extras?: ExtraModuleOptions,
+  ): Provider {
     if (options.useClass || options.useExisting) {
       return {
         provide: MODULE_OPTIONS_TOKEN,
@@ -68,12 +80,14 @@ export class OctokitModule {
       return {
         provide: MODULE_OPTIONS_TOKEN,
         useFactory: options.useFactory,
-        inject: options.inject || [],
+        inject: options.inject,
         scope: extras?.scope,
       };
     }
 
-    throw new Error('Invalid configuration. One of useClass, useExisting or useFactory must be defined.');
+    throw new Error(
+      'Invalid configuration. One of useClass, useExisting or useFactory must be defined.',
+    );
   }
 
   private static createClient(options: ModuleOptions): Octokit {

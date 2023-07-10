@@ -79,7 +79,7 @@ export class GraphqlPubsubModule {
       return {
         provide: getOptionsToken(extras?.alias),
         useFactory: options.useFactory,
-        inject: options.inject || [],
+        inject: options.inject,
       };
     }
 

@@ -1,6 +1,20 @@
 {
   "git": {
-    "commitMessage": "chore(release): ${version}",
-    "tagName": "nestjs-google-oauth2-${version}"
+    "commitMessage": "chore(${name}): release ${version}",
+    "push": true,
+    "commit": true,
+    "tag": true,
+    "requireCommits": false,
+    "tagName": "${name}-${version}",
+    "requireCleanWorkingDir": false
+  },
+  "github": {
+    "release": true,
+    "releaseName": "${name}-${version}",
+    "draft": true
+  },
+  "npm": {
+    "publish": true,
+    "ignoreVersion": false
   }
 }

@@ -87,7 +87,7 @@ export class AwsS3Module {
       return {
         provide: getOptionsToken(extras?.alias),
         useFactory: options.useFactory,
-        inject: options.inject || [],
+        inject: options.inject,
       };
     }
 

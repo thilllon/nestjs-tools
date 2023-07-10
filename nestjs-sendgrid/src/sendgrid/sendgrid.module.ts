@@ -1,54 +1,55 @@
-import { DynamicModule, Module, Provider, Type } from '@nestjs/common';
-import { GoogleApis, google } from 'googleapis';
-
+import { DynamicModule, Module, Provider, Scope, Type } from '@nestjs/common';
+import type { Client } from '@sendgrid/client';
+import * as client from '@sendgrid/client';
+import { MODULE_CLIENT_TOKEN, MODULE_OPTIONS_TOKEN, SENDGRID_API_KEY } from './sendgrid.constants';
 import {
   AsyncModuleOptions,
   ExtraModuleOptions,
   ModuleOptions,
   ModuleOptionsFactory,
-} from './googleapis.interface';
-import { getClientToken, getOptionsToken } from './googleapis.utils';
+} from './sendgrid.interface';
+import { SendgridService } from './sendgrid.service';
+import { getOptionsToken } from './sendgrid.utils';
 
-@Module({})
-export class GoogleApisModule {
+@Module({
+  providers: [SendgridService],
+  exports: [SendgridService],
+})
+export class SendgridModule {
   static register(options: ModuleOptions, extras?: ExtraModuleOptions): DynamicModule {
-    const optionsProvider: Provider = {
-      provide: getOptionsToken(extras?.alias),
-      useValue: options,
-    };
-
     const clientProvider: Provider = {
-      provide: getClientToken(extras?.alias),
+      provide: MODULE_CLIENT_TOKEN,
+      scope: extras?.scope ?? Scope.DEFAULT,
       useValue: this.createClient(options),
     };
 
     return {
-      module: GoogleApisModule,
-      providers: [optionsProvider, clientProvider],
-      exports: [optionsProvider, clientProvider],
+      module: SendgridModule,
+      providers: [clientProvider],
+      exports: [clientProvider],
       global: extras?.global,
     };
   }
 
   static registerAsync(options: AsyncModuleOptions, extras?: ExtraModuleOptions): DynamicModule {
-    const clientProvider: Provider = {
-      provide: getClientToken(extras?.alias),
+    const provider: Provider = {
       useFactory: (options: ModuleOptions) => this.createClient(options),
-      inject: [getOptionsToken(extras?.alias)],
+      provide: getOptionsToken(extras?.alias),
+      scope: extras?.scope,
+      inject: [MODULE_OPTIONS_TOKEN],
     };
 
     return {
-      module: GoogleApisModule,
       imports: options.imports,
-      providers: [...this.createAsyncProviders(options, extras), clientProvider],
-      exports: [clientProvider],
+      module: SendgridModule,
+      providers: [...this.createAsyncProviders(options, extras), provider],
       global: extras?.global,
     };
   }
 
   private static createAsyncProviders(
     options: AsyncModuleOptions,
-    extras?: ExtraModuleOptions,
+    extras?: ExtraModuleOptions
   ): Provider[] {
     if (options.useClass) {
       return [
@@ -62,13 +63,13 @@ export class GoogleApisModule {
     }
 
     throw new Error(
-      'Invalid configuration. One of useClass, useExisting or useFactory must be defined.',
+      'Invalid configuration. One of useClass, useExisting or useFactory must be defined.'
     );
   }
 
   private static createAsyncOptionsProvider(
     options: AsyncModuleOptions,
-    extras?: ExtraModuleOptions,
+    extras?: ExtraModuleOptions
   ): Provider {
     if (options.useClass || options.useExisting) {
       return {
@@ -89,13 +90,18 @@ export class GoogleApisModule {
     }
 
     throw new Error(
-      'Invalid configuration. One of useClass, useExisting or useFactory must be defined.',
+      'Invalid configuration. One of useClass, useExisting or useFactory must be defined.'
     );
   }
 
-  private static createClient(options: ModuleOptions) {
-    const auth = new google.auth.JWT(options);
-    const googleApis = new GoogleApis({ auth });
-    return googleApis;
+  private static createClient(options: ModuleOptions): Client {
+    const apiKey = options.apiKey ?? process.env[SENDGRID_API_KEY];
+    if (!apiKey) {
+      throw new Error(`Environment variable is required: "${SENDGRID_API_KEY}"`);
+    }
+
+    const defaultClient: Client = client;
+    defaultClient.setApiKey(apiKey);
+    return defaultClient;
   }
 }

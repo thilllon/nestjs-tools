@@ -94,7 +94,7 @@ export class PgListenModule implements OnModuleDestroy {
       return {
         provide: MODULE_OPTIONS_TOKEN,
         useFactory: options.useFactory,
-        inject: options.inject || [],
+        inject: options.inject,
       };
     }
 

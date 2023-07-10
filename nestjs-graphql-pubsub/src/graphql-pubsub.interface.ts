@@ -8,7 +8,7 @@ export interface ModuleOptions {
   pubsub: PubSubEngine;
 }
 
-export type ExtraModuleOptions = {
+export interface ExtraModuleOptions {
   /**
    * make the module global
    * @default false
@@ -20,7 +20,7 @@ export type ExtraModuleOptions = {
    * @default ''
    */
   alias?: string;
-};
+}
 
 export interface ModuleOptionsFactory {
   createModuleOptions(): Promise<ModuleOptions> | ModuleOptions;

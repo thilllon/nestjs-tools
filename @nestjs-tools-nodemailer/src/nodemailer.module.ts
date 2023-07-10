@@ -1,12 +1,18 @@
+import { S3Client } from '@aws-sdk/client-s3';
 import { DynamicModule, Module, Provider, Type } from '@nestjs/common';
-import { Transporter, createTransport } from 'nodemailer';
 
-import { ExtraModuleOptions, ModuleOptions } from './nodemailer.interface';
-import { ModuleOptionsFactory, AsyncModuleOptions } from './nodemailer.interface';
-import { getClientToken, getOptionsToken } from './nodemailer.utils';
+import type {
+  AsyncModuleOptions,
+  ExtraModuleOptions,
+  ModuleOptions,
+  ModuleOptionsFactory,
+} from './aws-s3.interface';
+import { getClientToken, getOptionsToken } from './aws-s3.utils';
 
 @Module({})
-export class NodemailerModule {
+export class AwsS3Module {
+  private static DEFAULT_API_VERSION = '2006-03-01';
+
   static register(options: ModuleOptions, extras?: ExtraModuleOptions): DynamicModule {
     const optionsProvider: Provider = {
       provide: getOptionsToken(extras?.alias),
@@ -19,7 +25,7 @@ export class NodemailerModule {
     };
 
     return {
-      module: NodemailerModule,
+      module: AwsS3Module,
       // FIXME: optionsProvider does not need to be exported...?
       providers: [optionsProvider, clientProvider],
       exports: [optionsProvider, clientProvider],
@@ -35,7 +41,7 @@ export class NodemailerModule {
     };
 
     return {
-      module: NodemailerModule,
+      module: AwsS3Module,
       imports: options.imports,
       providers: [...this.createAsyncProviders(options, extras), clientProvider],
       exports: [clientProvider],
@@ -81,7 +87,7 @@ export class NodemailerModule {
       return {
         provide: getOptionsToken(extras?.alias),
         useFactory: options.useFactory,
-        inject: options.inject || [],
+        inject: options.inject,
       };
     }
 
@@ -90,7 +96,15 @@ export class NodemailerModule {
     );
   }
 
-  private static createClient(options: ModuleOptions): Transporter<any> {
-    return createTransport(options.transport, options.defaults);
+  private static createClient(options: ModuleOptions): S3Client {
+    return new S3Client({
+      apiVersion: options.apiVersion || this.DEFAULT_API_VERSION,
+      region: options.region,
+      credentials: {
+        accessKeyId: options.credentials.accessKeyId,
+        secretAccessKey: options.credentials.secretAccessKey,
+        sessionToken: options.credentials.sessionToken,
+      },
+    });
   }
 }

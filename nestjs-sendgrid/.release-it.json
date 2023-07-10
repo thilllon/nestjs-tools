@@ -1,16 +1,16 @@
 {
   "git": {
-    "commitMessage": "chore(${name}): release ${version}",
+    "commitMessage": "chore(nestjs-sendgrid): release ${version}",
     "push": true,
     "commit": true,
     "tag": true,
     "requireCommits": false,
-    "tagName": "${name}-${version}",
+    "tagName": "nestjs-sendgrid-${version}",
     "requireCleanWorkingDir": false
   },
   "github": {
     "release": true,
-    "releaseName": "${name}-${version}",
+    "releaseName": "nestjs-sendgrid-${version}",
     "draft": true
   },
   "npm": {
