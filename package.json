@@ -1,0 +1,18 @@
+{
+  "name": "nestjs-tools",
+  "version": "0.0.0",
+  "keywords": [],
+  "license": "ISC",
+  "files": [],
+  "devDependencies": {
+    "@commitlint/config-conventional": "^17.7.0",
+    "@types/node": "^20.5.8",
+    "commitizen": "^4.3.0",
+    "commitlint": "^17.7.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^8.0.3",
+    "prettier": "^3.0.3",
+    "ts-node": "^10.9.1",
+    "tsx": "^3.12.8"
+  }
+}
