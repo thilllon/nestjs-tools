@@ -23,10 +23,7 @@
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "libs/nestjs-tools/aws-s3/**/*.ts",
-          "libs/nestjs-tools/aws-s3/package.json"
-        ]
+        "lintFilePatterns": ["libs/nestjs-tools/aws-s3/**/*.ts"]
       }
     },
     "test": {
