@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ModuleMetadata, Type } from '@nestjs/common';
 
 /**

@@ -22,17 +22,17 @@ describe('AwsS3Service', () => {
     }
   }
 
-  @Injectable()
-  class IncorrectOptionsService implements ModuleOptionsFactory {
-    createModuleOptions(): ModuleOptions {
-      return {
-        credentials: {
-          accessKeyId: 'somthing_wrong_key',
-          secretAccessKey: 'truly_wrong_secret',
-        },
-      };
-    }
-  }
+  // @Injectable()
+  // class IncorrectOptionsService implements ModuleOptionsFactory {
+  //   createModuleOptions(): ModuleOptions {
+  //     return {
+  //       credentials: {
+  //         accessKeyId: 'somthing_wrong_key',
+  //         secretAccessKey: 'truly_wrong_secret',
+  //       },
+  //     };
+  //   }
+  // }
 
   describe('s3.service', () => {
     it('should provide the s3 client', async () => {

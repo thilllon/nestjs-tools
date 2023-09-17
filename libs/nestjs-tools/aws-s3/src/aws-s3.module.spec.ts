@@ -88,7 +88,7 @@ describe('S3Module', () => {
         // expect(module.get<S3Client>(getClientToken('goodbye'))).toThrow();
 
         try {
-          const client = module.get<S3Client>(getClientToken());
+          void module.get<S3Client>(getClientToken());
         } catch (err) {
           console.error(err);
           expect(err).toBeDefined();

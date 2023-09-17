@@ -1,20 +1,11 @@
-import { Readable } from 'node:stream';
-
-import sharp from 'sharp';
-
 import type { ConfigOptions, ResourceType, SignApiOptions } from 'cloudinary';
-
-export interface SignedUploadUrlOptions extends SignApiOptions {
-  resource_type?: ResourceType;
-  folder?: string;
-  eager?: string;
-  apiSecret: string;
-}
+import { Readable } from 'node:stream';
+import { SharpOptions } from 'sharp';
 
 export type ModuleOptions = ConfigOptions;
 
 /** Object containing file metadata and access information. */
-export interface UploadFile {
+export interface IFile {
   /** Name of the form field associated with this file. */
   fieldname: string;
   /** Name of the file on the uploader's computer. */
@@ -44,8 +35,15 @@ export interface UploadFile {
   buffer: Buffer;
 }
 
-export interface ISharpInputOptions {
+export interface SharpInputOptions {
   width?: number;
   height?: number;
-  options?: sharp.SharpOptions;
+  options?: SharpOptions;
+}
+
+export interface SignedUploadUrlOptions extends SignApiOptions {
+  public_id: string;
+  resource_type: ResourceType;
+  folder?: string;
+  eager?: string;
 }
