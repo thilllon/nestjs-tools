@@ -49,7 +49,7 @@ import { Module } from '@nestjs/common';
 import { ResilienceModule } from 'nestjs-resilience';
 
 @Module({
-    imports: [ResilienceModule.forRoot()]
+  imports: [ResilienceModule.forRoot()],
 })
 export class AppModule {}
 ```
@@ -74,23 +74,23 @@ import { User, NullUserObject } from './user.entity';
 
 @Injectable()
 export class GetUserByIdCommand extends ResilienceCommand {
-    constructor(
-        private readonly factory: ResilienceFactory,
-        private readonly userService: UsersService
-    ) {
-        super([
-            // You can use the injected factory to create a strategy
-            factory.createTimeout(1000),
-            // Or you can create a strategy directly
-            ResilienceFactory.createFallback((id) => new NullUserObject(id))
-            // You can also use mannually created strategies
-            // new TimeoutStrategy(1000),
-        ]);
-    }
+  constructor(
+    private readonly factory: ResilienceFactory,
+    private readonly userService: UsersService,
+  ) {
+    super([
+      // You can use the injected factory to create a strategy
+      factory.createTimeout(1000),
+      // Or you can create a strategy directly
+      ResilienceFactory.createFallback((id) => new NullUserObject(id)),
+      // You can also use mannually created strategies
+      // new TimeoutStrategy(1000),
+    ]);
+  }
 
-    async run(id: number): User {
-        return this.usersService.getUser(id);
-    }
+  async run(id: number): User {
+    return this.usersService.getUser(id);
+  }
 }
 ```
 
@@ -108,19 +108,22 @@ You can use `@UseResilience()` decorator to wrap your **service** methods.
 
 ```typescript
 import { Injectable } from '@nestjs/common';
-import { TimeoutStrategy } from "./timeout.strategy";
+import { TimeoutStrategy } from './timeout.strategy';
 import { NullUserObject, User } from './user.entity';
 
 @Injectable()
 export class UsersService {
-    @UseResilience(new TimeoutStrategy(1000), ResilienceFactory.createFallback((id) => new NullUserObject(id)))
-    async getUser(id: number): User {
-        return this.httpService.get(`https://example.com/users/${id}`).toPromise();
-    }
+  @UseResilience(
+    new TimeoutStrategy(1000),
+    ResilienceFactory.createFallback((id) => new NullUserObject(id)),
+  )
+  async getUser(id: number): User {
+    return this.httpService.get(`https://example.com/users/${id}`).toPromise();
+  }
 }
 ```
 
-> Not the best way to use in controller methods. `@UseResilience` rewrite your method. 
+> Not the best way to use in controller methods. `@UseResilience` rewrite your method.
 
 #### 3. Interceptors
 
@@ -133,14 +136,18 @@ import { UsersService } from './users.service';
 
 @Controller('users')
 export class UsersController {
-    constructor(private readonly usersService: UsersService) {
-    }
+  constructor(private readonly usersService: UsersService) {}
 
-    @Get()
-    @UseInterceptors(ResilienceInterceptor(new TimeoutStrategy(1000), ResilienceFactory.createFallback(() => [])))
-    async getUsers(): User[] {
-        return this.usersService.getUsers();
-    }
+  @Get()
+  @UseInterceptors(
+    ResilienceInterceptor(
+      new TimeoutStrategy(1000),
+      ResilienceFactory.createFallback(() => []),
+    ),
+  )
+  async getUsers(): User[] {
+    return this.usersService.getUsers();
+  }
 }
 ```
 
@@ -150,16 +157,19 @@ We also support `Observable` as a return type. You can use it with `@UseResilien
 
 ```typescript
 import { Injectable } from '@nestjs/common';
-import { TimeoutStrategy } from "./timeout.strategy";
+import { TimeoutStrategy } from './timeout.strategy';
 import { NullUserObject, User } from './user.entity';
 import { Observable, of } from 'rxjs';
 
 @Injectable()
 export class UsersService {
-    @UseResilienceObservable(new TimeoutStrategy(1000), ResilienceFactory.createFallback((id) => new NullUserObject(id)))
-    getUser(id: number): Observable<User> {
-        return of(new User(id, 'John Doe'));
-    }
+  @UseResilienceObservable(
+    new TimeoutStrategy(1000),
+    ResilienceFactory.createFallback((id) => new NullUserObject(id)),
+  )
+  getUser(id: number): Observable<User> {
+    return of(new User(id, 'John Doe'));
+  }
 }
 ```
 
@@ -185,7 +195,7 @@ What it means? Let's take a look at the example:
 ### Strategies
 
 | Strategy                 | Description                                                          |
-|--------------------------|----------------------------------------------------------------------|
+| ------------------------ | -------------------------------------------------------------------- |
 | `TimeoutStrategy`        | Automatically fail fast when a service is taking too long to respond |
 | `RetryStrategy`          | Automatically retry failed requests                                  |
 | `CircuitBreakerStrategy` | Automatically fail fast when a service is unavailable                |
@@ -195,12 +205,10 @@ What it means? Let's take a look at the example:
 | `HealthCheckStrategy`    | Check the health of a service                                        |
 | `CacheStrategy`          | Cache the result of a service call                                   |
 
-
-
 ## Stay in touch
 
-* Author - [Alexey Filippov](https://t.me/socketsomeone)
-* Twitter - [@SocketSomeone](https://twitter.com/SocketSomeone)
+- Author - [Alexey Filippov](https://t.me/socketsomeone)
+- Twitter - [@SocketSomeone](https://twitter.com/SocketSomeone)
 
 ## License
 

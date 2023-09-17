@@ -1,5 +1,5 @@
 export enum CircuitBreakerStatus {
-	Closed = 'Closed',
-	HalfOpen = 'HalfOpen',
-	Open = 'Open'
+  Closed = 'Closed',
+  HalfOpen = 'HalfOpen',
+  Open = 'Open',
 }

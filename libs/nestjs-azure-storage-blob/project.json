@@ -1,0 +1,65 @@
+{
+  "name": "nestjs-azure-storage-blob",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/nestjs-azure-storage-blob/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/nestjs-azure-storage-blob",
+        "tsConfig": "libs/nestjs-azure-storage-blob/tsconfig.lib.json",
+        "packageJson": "libs/nestjs-azure-storage-blob/package.json",
+        "main": "libs/nestjs-azure-storage-blob/src/index.ts",
+        "assets": ["libs/nestjs-azure-storage-blob/*.md"]
+      }
+    },
+    "publish": {
+      "command": "node tools/scripts/publish.mjs nestjs-azure-storage-blob {args.version} {args.tag}",
+      "dependsOn": ["build"]
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/nestjs-azure-storage-blob/**/*.ts",
+          "libs/nestjs-azure-storage-blob/package.json"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/nestjs-azure-storage-blob/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "example": {
+      "executor": "nx:run-commands",
+      "options": {
+        "parallel": true,
+        "cwd": "libs/nestjs-azure-storage-blob",
+        "commands": [
+          {
+            "command": "echo 'Starting example/client'",
+            "color": "blue"
+          },
+          {
+            "command": "cd example/client; next dev --port 3000",
+            "color": "green"
+          }
+        ]
+      }
+    }
+  },
+  "tags": []
+}

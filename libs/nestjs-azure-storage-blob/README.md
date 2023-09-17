@@ -1,4 +1,4 @@
-# nestjs-storage-blob
+# nestjs-azure-storage-blob
 
 Azure Blob Storage module for Nest.js
 
@@ -18,7 +18,7 @@ Azure Blob Storage module for Nest.js
 - Install packages
 
 ```sh
-npm install nestjs-storage-blob @azure/storage-blob
+npm install nestjs-azure-storage-blob @azure/storage-blob
 ```
 
 - Set environment variables(`.env`)
@@ -37,7 +37,7 @@ NEST_STORAGE_BLOB_CONTAINER="<CONTAINER_NAME>"
 // app.module.ts
 
 import { Module } from '@nestjs/common';
-import { StorageBlobModule } from 'nestjs-storage-blob';
+import { StorageBlobModule } from 'nestjs-azure-storage-blob';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
@@ -60,7 +60,7 @@ export class AppModule {}
 // app.module.ts
 
 import { Module } from '@nestjs/common';
-import { StorageBlobModule } from 'nestjs-storage-blob';
+import { StorageBlobModule } from 'nestjs-azure-storage-blob';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
@@ -85,7 +85,7 @@ export class AppModule {}
 // app.controller.ts
 
 import { Controller, Get } from '@nestjs/common';
-import { StorageBlobService } from 'nestjs-storage-blob';
+import { StorageBlobService } from 'nestjs-azure-storage-blob';
 
 @Controller()
 export class AppController {
@@ -176,7 +176,7 @@ const onChange: ChangeEventHandler<HTMLInputElement> = async (ev) => {
 
 ```sh
 # to test locally
-pnpm add link:./path/to/nestjs-storage-blob
+pnpm add link:./path/to/nestjs-azure-storage-blob
 ```
 
 ## Publish
@@ -194,4 +194,4 @@ NEST_STORAGE_BLOB_CONNECTION="DefaultEndpointsProtocol=https;AccountName=<ACCOUN
 NEST_STORAGE_BLOB_CONTAINER="<CONTAINER_NAME>"
 ```
 
-# nestjs-storage-blob
+# nestjs-azure-storage-blob

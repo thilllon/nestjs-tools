@@ -1,4 +1,4 @@
 export interface BulkheadOptions {
-	maxConcurrent: number;
-	maxQueue: number;
+  maxConcurrent: number;
+  maxQueue: number;
 }

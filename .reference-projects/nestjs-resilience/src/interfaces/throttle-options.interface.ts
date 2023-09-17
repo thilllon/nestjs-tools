@@ -1,4 +1,4 @@
 export interface ThrottleOptions {
-	ttl: number;
-	limit: number;
+  ttl: number;
+  limit: number;
 }

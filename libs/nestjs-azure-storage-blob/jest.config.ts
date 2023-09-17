@@ -1,13 +1,11 @@
-import { Config } from 'jest';
-
-const config: Config = {
-  clearMocks: true,
+/* eslint-disable */
+export default {
+  displayName: 'nestjs-azure-storage-blob',
+  preset: '../../jest.preset.js',
   testEnvironment: 'node',
-  testMatch: ['**/src/**/*.(spec|test).ts'],
-  testPathIgnorePatterns: ['\\\\node_modules\\\\'],
   transform: {
-    '^.+\\.(t|j)s$': 'ts-jest',
+    '^.+\\.[tj]s$': ['ts-jest', { tsconfig: '<rootDir>/tsconfig.spec.json' }],
   },
+  moduleFileExtensions: ['ts', 'js', 'html'],
+  coverageDirectory: '../../coverage/libs/nestjs-azure-storage-blob',
 };
-
-export default config;

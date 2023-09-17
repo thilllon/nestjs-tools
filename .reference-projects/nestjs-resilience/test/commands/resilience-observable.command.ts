@@ -3,35 +3,35 @@ import { of, tap } from 'rxjs';
 import { retryStrategy } from './fixtures/strategy.fixture';
 
 class TestObservableCommand extends ResilienceObservableCommand {
-	private count = 0;
+  private count = 0;
 
-	public run() {
-		return of(1000).pipe(
-			tap(() => {
-				this.count += 1;
+  public run() {
+    return of(1000).pipe(
+      tap(() => {
+        this.count += 1;
 
-				if (this.count !== 3) {
-					throw new Error('Test');
-				}
+        if (this.count !== 3) {
+          throw new Error('Test');
+        }
 
-				return 1000;
-			})
-		);
-	}
+        return 1000;
+      }),
+    );
+  }
 }
 
 describe('Resilience Observable Command', () => {
-	it('should be able to retry an observable', done => {
-		const command = new TestObservableCommand([retryStrategy]);
-		const observable = command.execute();
+  it('should be able to retry an observable', (done) => {
+    const command = new TestObservableCommand([retryStrategy]);
+    const observable = command.execute();
 
-		observable.subscribe({
-			next: value => {
-				expect(value).toBe(1000);
-			},
-			complete: () => {
-				done();
-			}
-		});
-	});
+    observable.subscribe({
+      next: (value) => {
+        expect(value).toBe(1000);
+      },
+      complete: () => {
+        done();
+      },
+    });
+  });
 });

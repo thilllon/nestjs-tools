@@ -1,0 +1,48 @@
+{
+  "name": "@nestjs-tools/cloudinary",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/nestjs-tools/cloudinary/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/nestjs-tools/cloudinary",
+        "tsConfig": "libs/nestjs-tools/cloudinary/tsconfig.lib.json",
+        "packageJson": "libs/nestjs-tools/cloudinary/package.json",
+        "main": "libs/nestjs-tools/cloudinary/src/index.ts",
+        "assets": ["libs/nestjs-tools/cloudinary/*.md"]
+      }
+    },
+    "publish": {
+      "command": "node tools/scripts/publish.mjs @nestjs-tools/cloudinary {args.ver} {args.tag}",
+      "dependsOn": ["build"]
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/nestjs-tools/cloudinary/**/*.ts",
+          "libs/nestjs-tools/cloudinary/package.json"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/nestjs-tools/cloudinary/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": []
+}

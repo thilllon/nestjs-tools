@@ -3,41 +3,41 @@ import { Strategy } from './strategies';
 import { Observable } from 'rxjs';
 
 type TypedHandlerDescriptor<T> = (
-	target: Object,
-	propertyKey: string | symbol | undefined,
-	descriptor: TypedPropertyDescriptor<(...args: any[]) => T>
+  target: Object,
+  propertyKey: string | symbol | undefined,
+  descriptor: TypedPropertyDescriptor<(...args: any[]) => T>,
 ) => TypedPropertyDescriptor<(...args: any[]) => T> | void;
 
 function ResilienceDecorator(baseClass: any, strategies: Strategy[]) {
-	return (target: any, propertyKey: string, descriptor: PropertyDescriptor) => {
-		const originalMethod = descriptor.value;
+  return (target: any, propertyKey: string, descriptor: PropertyDescriptor) => {
+    const originalMethod = descriptor.value;
 
-		class Command extends baseClass {
-			public run = null;
+    class Command extends baseClass {
+      public run = null;
 
-			public constructor() {
-				super(strategies, target.constructor.name, propertyKey);
-			}
-		}
+      public constructor() {
+        super(strategies, target.constructor.name, propertyKey);
+      }
+    }
 
-		const command = new Command();
+    const command = new Command();
 
-		descriptor.value = function (...args: any[]) {
-			if (command.run === null) {
-				command.run = originalMethod.bind(this);
-			}
+    descriptor.value = function (...args: any[]) {
+      if (command.run === null) {
+        command.run = originalMethod.bind(this);
+      }
 
-			return command.execute(...args);
-		};
+      return command.execute(...args);
+    };
 
-		return descriptor;
-	};
+    return descriptor;
+  };
 }
 
 export const UseResilience = (...strategies: Strategy[]): TypedHandlerDescriptor<Promise<any>> =>
-	ResilienceDecorator(ResilienceCommand, strategies);
+  ResilienceDecorator(ResilienceCommand, strategies);
 
 export const UseResilienceObservable = (
-	...strategies: Strategy[]
+  ...strategies: Strategy[]
 ): TypedHandlerDescriptor<Observable<any>> =>
-	ResilienceDecorator(ResilienceObservableCommand, strategies);
+  ResilienceDecorator(ResilienceObservableCommand, strategies);

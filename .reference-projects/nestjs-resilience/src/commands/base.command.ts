@@ -8,55 +8,55 @@ export type ParametersOfRun<T extends BaseCommand> = Parameters<T['run']>;
 export type ReturnTypeOfRun<T extends BaseCommand> = ReturnType<T['run']>;
 
 export abstract class BaseCommand {
-	protected readonly logger: Logger;
+  protected readonly logger: Logger;
 
-	protected readonly eventBus = new ResilienceEventBus();
+  protected readonly eventBus = new ResilienceEventBus();
 
-	protected readonly strategies: Strategy[];
+  protected readonly strategies: Strategy[];
 
-	public readonly group: string;
+  public readonly group: string;
 
-	public readonly name: string;
+  public readonly name: string;
 
-	public constructor(strategies: Strategy[], group?: string, name?: string) {
-		this.strategies = strategies;
-		this.group = group ?? 'default';
-		this.name = name ?? this.constructor.name;
-		this.logger = new Logger(this.toString());
-	}
+  public constructor(strategies: Strategy[], group?: string, name?: string) {
+    this.strategies = strategies;
+    this.group = group ?? 'default';
+    this.name = name ?? this.constructor.name;
+    this.logger = new Logger(this.toString());
+  }
 
-	/**
-	 * Abstract method to be implemented by the command
-	 * @param args
-	 */
-	public abstract run(...args: any[]): any;
+  /**
+   * Abstract method to be implemented by the command
+   * @param args
+   */
+  public abstract run(...args: any[]): any;
 
-	public abstract execute(...args: ParametersOfRun<this>): ReturnTypeOfRun<this>;
+  public abstract execute(...args: ParametersOfRun<this>): ReturnTypeOfRun<this>;
 
-	protected onSuccess() {
-		this.logger.debug('Command executed successfully');
-		this.eventBus.emit(ResilienceEventType.Success, this);
-	}
+  protected onSuccess() {
+    this.logger.debug('Command executed successfully');
+    this.eventBus.emit(ResilienceEventType.Success, this);
+  }
 
-	protected onFailure(error: any) {
-		if (error instanceof TimeoutException) {
-			this.logger.debug('Command timed out');
-			this.eventBus.emit(ResilienceEventType.Timeout, this);
-			return error;
-		}
+  protected onFailure(error: any) {
+    if (error instanceof TimeoutException) {
+      this.logger.debug('Command timed out');
+      this.eventBus.emit(ResilienceEventType.Timeout, this);
+      return error;
+    }
 
-		if (error instanceof CircuitOpenedException) {
-			this.logger.debug('Command short-circuited');
-			this.eventBus.emit(ResilienceEventType.ShortCircuit, this);
-			return error;
-		}
+    if (error instanceof CircuitOpenedException) {
+      this.logger.debug('Command short-circuited');
+      this.eventBus.emit(ResilienceEventType.ShortCircuit, this);
+      return error;
+    }
 
-		this.logger.debug('Command failed');
-		this.eventBus.emit(ResilienceEventType.Failure, this);
-		return error;
-	}
+    this.logger.debug('Command failed');
+    this.eventBus.emit(ResilienceEventType.Failure, this);
+    return error;
+  }
 
-	public toString() {
-		return `${this.group}#${this.name}`;
-	}
+  public toString() {
+    return `${this.group}#${this.name}`;
+  }
 }

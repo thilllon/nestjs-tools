@@ -33,7 +33,7 @@ jobs:
         if: steps.pre-release.outputs.release == 'true'
         run: 'npx @favware/npm-deprecate --name "*dev*" --package "nestjs-resilience"'
         env:
-            NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish
         if: steps.pre-release.outputs.release == 'true'

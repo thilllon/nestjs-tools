@@ -2,4 +2,4 @@
 
 ## Reporting a Vulnerability
 
-Please report security issues to `socket.someone@gmail.com`.
+Please report security issues to `thilllon970@gmail.com`.

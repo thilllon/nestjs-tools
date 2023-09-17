@@ -4,77 +4,77 @@ import { BulkheadRejectedException } from '../exceptions';
 import { BulkheadOptions } from '../interfaces';
 
 export class BulkheadStrategy extends Strategy<BulkheadOptions> {
-	private static readonly DEFAULT_OPTIONS: BulkheadOptions = {
-		maxConcurrent: 1,
-		maxQueue: 1
-	};
+  private static readonly DEFAULT_OPTIONS: BulkheadOptions = {
+    maxConcurrent: 1,
+    maxQueue: 1,
+  };
 
-	private active = 0;
+  private active = 0;
 
-	private queue: Observable<any>[] = [];
+  private queue: Observable<any>[] = [];
 
-	private queue$ = new Subject<Observable<any>>();
+  private queue$ = new Subject<Observable<any>>();
 
-	public get executionSlots(): number {
-		return this.options.maxConcurrent - this.active;
-	}
+  public get executionSlots(): number {
+    return this.options.maxConcurrent - this.active;
+  }
 
-	public get queueSlots(): number {
-		return this.options.maxQueue - this.queue.length;
-	}
+  public get queueSlots(): number {
+    return this.options.maxQueue - this.queue.length;
+  }
 
-	public constructor(options?: BulkheadOptions) {
-		super({ ...BulkheadStrategy.DEFAULT_OPTIONS, ...options });
-	}
+  public constructor(options?: BulkheadOptions) {
+    super({ ...BulkheadStrategy.DEFAULT_OPTIONS, ...options });
+  }
 
-	public process<T>(observable: Observable<T>): Observable<T> {
-		if (this.executionSlots > 0) {
-			return this.concurrent(observable);
-		}
+  public process<T>(observable: Observable<T>): Observable<T> {
+    if (this.executionSlots > 0) {
+      return this.concurrent(observable);
+    }
 
-		if (this.queueSlots > 0) {
-			return this.enqueue(observable);
-		}
+    if (this.queueSlots > 0) {
+      return this.enqueue(observable);
+    }
 
-		return throwError(
-			() => new BulkheadRejectedException(this.options.maxConcurrent, this.options.maxQueue)
-		);
-	}
+    return throwError(
+      () => new BulkheadRejectedException(this.options.maxConcurrent, this.options.maxQueue),
+    );
+  }
 
-	private concurrent<T>(observable: Observable<T>): Observable<T> {
-		this.active++;
+  private concurrent<T>(observable: Observable<T>): Observable<T> {
+    this.active++;
 
-		return observable.pipe(
-			finalize(() => {
-				this.active--;
-				this.dequeue();
-			})
-		);
-	}
+    return observable.pipe(
+      finalize(() => {
+        this.active--;
+        this.dequeue();
+      }),
+    );
+  }
 
-	private enqueue<T>(observable: Observable<T>): Observable<T> {
-		this.queue.push(observable);
+  private enqueue<T>(observable: Observable<T>): Observable<T> {
+    this.queue.push(observable);
 
-		return new Observable(subscriber => {
-			this.queue$.subscribe(queuedObservable => {
-				if (queuedObservable === observable) {
-					return this.concurrent(observable).subscribe(subscriber);
-				}
-			});
-		});
-	}
+    return new Observable((subscriber) => {
+      this.queue$.subscribe((queuedObservable) => {
+        if (queuedObservable === observable) {
+          return this.concurrent(observable).subscribe(subscriber);
+        }
+      });
+    });
+  }
 
-	private dequeue(): void {
-		if (this.executionSlots === 0) {
-			return;
-		}
+  private dequeue(): void {
+    if (this.executionSlots === 0) {
+      return;
+    }
 
-		const observable = this.queue.shift();
+    const observable = this.queue.shift();
 
-		if (!observable) {
-			return;
-		}
+    if (!observable) {
+      return;
+    }
 
-		return this.queue$.next(observable);
-	}
+    return this.queue$.next(observable);
+  }
 }
