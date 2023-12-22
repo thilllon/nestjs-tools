@@ -46,7 +46,7 @@ dependencies:
     version: 16.8.1(@swc/core@1.3.101)(@types/node@20.10.5)(@typescript-eslint/parser@6.15.0)(eslint-config-prettier@9.1.0)(eslint@8.49.0)(nx@16.8.1)(typescript@5.2.2)(verdaccio@5.26.2)
   '@nx/jest':
     specifier: ^16.8.1
-    version: 16.8.1(@swc/core@1.3.101)(@types/node@20.10.5)(nx@16.8.1)(ts-node@10.9.1)(typescript@5.2.2)(verdaccio@5.26.2)
+    version: 16.8.1(@swc/core@1.3.101)(@types/node@20.10.5)(nx@16.8.1)(ts-node@10.9.2)(typescript@5.2.2)(verdaccio@5.26.2)
   '@nx/js':
     specifier: ^16.8.1
     version: 16.8.1(@swc/core@1.3.101)(@types/node@20.10.5)(nx@16.8.1)(typescript@5.2.2)(verdaccio@5.26.2)
@@ -55,7 +55,7 @@ dependencies:
     version: 16.8.1(@swc/core@1.3.101)(@types/node@20.10.5)(eslint@8.49.0)(nx@16.8.1)(verdaccio@5.26.2)
   '@nx/nest':
     specifier: ^16.8.1
-    version: 16.8.1(@swc/core@1.3.101)(@types/node@20.10.5)(eslint@8.49.0)(nx@16.8.1)(ts-node@10.9.1)(typescript@5.2.2)(verdaccio@5.26.2)
+    version: 16.8.1(@swc/core@1.3.101)(@types/node@20.10.5)(eslint@8.49.0)(nx@16.8.1)(ts-node@10.9.2)(typescript@5.2.2)(verdaccio@5.26.2)
   '@nx/vite':
     specifier: ^16.8.1
     version: 16.8.1(@swc/core@1.3.101)(@types/node@20.10.5)(nx@16.8.1)(typescript@5.2.2)(verdaccio@5.26.2)(vite@4.4.9)(vitest@0.34.4)
@@ -145,7 +145,7 @@ dependencies:
     version: 8.0.3
   jest:
     specifier: ^29.7.0
-    version: 29.7.0(@types/node@20.10.5)(ts-node@10.9.1)
+    version: 29.7.0(@types/node@20.10.5)(ts-node@10.9.2)
   jest-environment-node:
     specifier: ^29.7.0
     version: 29.7.0
@@ -192,8 +192,8 @@ dependencies:
     specifier: ^9.4.4
     version: 9.4.4(typescript@5.2.2)(webpack@5.89.0)
   ts-node:
-    specifier: ^10.9.1
-    version: 10.9.1(@swc/core@1.3.101)(@types/node@20.10.5)(typescript@5.2.2)
+    specifier: ^10.9.2
+    version: 10.9.2(@swc/core@1.3.101)(@types/node@20.10.5)(typescript@5.2.2)
   tsconfig-paths:
     specifier: ^4.2.0
     version: 4.2.0
@@ -202,7 +202,7 @@ dependencies:
     version: 2.6.2
   tsup:
     specifier: ^7.2.0
-    version: 7.2.0(@swc/core@1.3.101)(ts-node@10.9.1)(typescript@5.2.2)
+    version: 7.2.0(@swc/core@1.3.101)(ts-node@10.9.2)(typescript@5.2.2)
   tsx:
     specifier: ^3.12.10
     version: 3.12.10
@@ -2381,12 +2381,12 @@ packages:
       '@types/node': 20.4.7
       chalk: 4.1.2
       cosmiconfig: 8.3.6(typescript@5.2.2)
-      cosmiconfig-typescript-loader: 4.4.0(@types/node@20.4.7)(cosmiconfig@8.3.6)(ts-node@10.9.1)(typescript@5.2.2)
+      cosmiconfig-typescript-loader: 4.4.0(@types/node@20.4.7)(cosmiconfig@8.3.6)(ts-node@10.9.2)(typescript@5.2.2)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
       resolve-from: 5.0.0
-      ts-node: 10.9.1(@swc/core@1.3.101)(@types/node@20.4.7)(typescript@5.2.2)
+      ts-node: 10.9.2(@swc/core@1.3.101)(@types/node@20.4.7)(typescript@5.2.2)
       typescript: 5.2.2
     transitivePeerDependencies:
       - '@swc/core'
@@ -3178,7 +3178,7 @@ packages:
       slash: 3.0.0
     dev: false
 
-  /@jest/core@29.7.0(ts-node@10.9.1):
+  /@jest/core@29.7.0(ts-node@10.9.2):
     resolution: {integrity: sha512-n7aeXWKMnGtDA48y8TLWJPJmLmmZ642Ceo78cYWEpiD7FzDgmNDV/GCVRorPABdXLJZ/9wzzgZAlHjXjxDHGsg==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     peerDependencies:
@@ -3199,7 +3199,7 @@ packages:
       exit: 0.1.2
       graceful-fs: 4.2.11
       jest-changed-files: 29.7.0
-      jest-config: 29.7.0(@types/node@20.10.5)(ts-node@10.9.1)
+      jest-config: 29.7.0(@types/node@20.10.5)(ts-node@10.9.2)
       jest-haste-map: 29.7.0
       jest-message-util: 29.7.0
       jest-regex-util: 29.6.3
@@ -3729,10 +3729,10 @@ packages:
       - verdaccio
     dev: false
 
-  /@nrwl/jest@16.8.1(@swc/core@1.3.101)(@types/node@20.10.5)(nx@16.8.1)(ts-node@10.9.1)(typescript@5.2.2)(verdaccio@5.26.2):
+  /@nrwl/jest@16.8.1(@swc/core@1.3.101)(@types/node@20.10.5)(nx@16.8.1)(ts-node@10.9.2)(typescript@5.2.2)(verdaccio@5.26.2):
     resolution: {integrity: sha512-shOjtGwGRktUzCUwIIxzW/z5QaoGsYaEF1ihCVA10zai3XsNLkkPPfyEO85RegAu/RGk78PRXTOXdZaJNbraTw==}
     dependencies:
-      '@nx/jest': 16.8.1(@swc/core@1.3.101)(@types/node@20.10.5)(nx@16.8.1)(ts-node@10.9.1)(typescript@5.2.2)(verdaccio@5.26.2)
+      '@nx/jest': 16.8.1(@swc/core@1.3.101)(@types/node@20.10.5)(nx@16.8.1)(ts-node@10.9.2)(typescript@5.2.2)(verdaccio@5.26.2)
     transitivePeerDependencies:
       - '@babel/traverse'
       - '@swc-node/register'
@@ -3800,10 +3800,10 @@ packages:
       - verdaccio
     dev: false
 
-  /@nrwl/nest@16.8.1(@swc/core@1.3.101)(@types/node@20.10.5)(eslint@8.49.0)(nx@16.8.1)(ts-node@10.9.1)(typescript@5.2.2)(verdaccio@5.26.2):
+  /@nrwl/nest@16.8.1(@swc/core@1.3.101)(@types/node@20.10.5)(eslint@8.49.0)(nx@16.8.1)(ts-node@10.9.2)(typescript@5.2.2)(verdaccio@5.26.2):
     resolution: {integrity: sha512-h7NlM3Nymvld9zDGtWH2SCjqpzlBFbdLzpmodDTv3Wn7opjLYcMVsLqDTgGvu6W111vSolJvI8v7ibyf8pIePQ==}
     dependencies:
-      '@nx/nest': 16.8.1(@swc/core@1.3.101)(@types/node@20.10.5)(eslint@8.49.0)(nx@16.8.1)(ts-node@10.9.1)(typescript@5.2.2)(verdaccio@5.26.2)
+      '@nx/nest': 16.8.1(@swc/core@1.3.101)(@types/node@20.10.5)(eslint@8.49.0)(nx@16.8.1)(ts-node@10.9.2)(typescript@5.2.2)(verdaccio@5.26.2)
     transitivePeerDependencies:
       - '@babel/traverse'
       - '@swc-node/register'
@@ -3822,10 +3822,10 @@ packages:
       - verdaccio
     dev: false
 
-  /@nrwl/node@16.8.1(@swc/core@1.3.101)(@types/node@20.10.5)(eslint@8.49.0)(nx@16.8.1)(ts-node@10.9.1)(typescript@5.2.2)(verdaccio@5.26.2):
+  /@nrwl/node@16.8.1(@swc/core@1.3.101)(@types/node@20.10.5)(eslint@8.49.0)(nx@16.8.1)(ts-node@10.9.2)(typescript@5.2.2)(verdaccio@5.26.2):
     resolution: {integrity: sha512-d2L3pBkHqPHFsn13H7P/dNETTnTRGygLMoeYwcjC0+8C8Hwc1QCYIiKdPsZMEfwClj5K0evFRbpCLSPedwd5OQ==}
     dependencies:
-      '@nx/node': 16.8.1(@swc/core@1.3.101)(@types/node@20.10.5)(eslint@8.49.0)(nx@16.8.1)(ts-node@10.9.1)(typescript@5.2.2)(verdaccio@5.26.2)
+      '@nx/node': 16.8.1(@swc/core@1.3.101)(@types/node@20.10.5)(eslint@8.49.0)(nx@16.8.1)(ts-node@10.9.2)(typescript@5.2.2)(verdaccio@5.26.2)
     transitivePeerDependencies:
       - '@babel/traverse'
       - '@swc-node/register'
@@ -3954,18 +3954,18 @@ packages:
       - verdaccio
     dev: false
 
-  /@nx/jest@16.8.1(@swc/core@1.3.101)(@types/node@20.10.5)(nx@16.8.1)(ts-node@10.9.1)(typescript@5.2.2)(verdaccio@5.26.2):
+  /@nx/jest@16.8.1(@swc/core@1.3.101)(@types/node@20.10.5)(nx@16.8.1)(ts-node@10.9.2)(typescript@5.2.2)(verdaccio@5.26.2):
     resolution: {integrity: sha512-/EoJehHiOnRDKTi96Q9mTKt+kIcQSzwMLmWdZYvhdvpTdCjK51ElwK8W3Lt4HdXp4C45gfihLE3jJlJ8q4/5aA==}
     dependencies:
       '@jest/reporters': 29.7.0
       '@jest/test-result': 29.7.0
-      '@nrwl/jest': 16.8.1(@swc/core@1.3.101)(@types/node@20.10.5)(nx@16.8.1)(ts-node@10.9.1)(typescript@5.2.2)(verdaccio@5.26.2)
+      '@nrwl/jest': 16.8.1(@swc/core@1.3.101)(@types/node@20.10.5)(nx@16.8.1)(ts-node@10.9.2)(typescript@5.2.2)(verdaccio@5.26.2)
       '@nx/devkit': 16.8.1(nx@16.8.1)
       '@nx/js': 16.8.1(@swc/core@1.3.101)(@types/node@20.10.5)(nx@16.8.1)(typescript@5.2.2)(verdaccio@5.26.2)
       '@phenomnomnominal/tsquery': 5.0.1(typescript@5.2.2)
       chalk: 4.1.2
       identity-obj-proxy: 3.0.0
-      jest-config: 29.7.0(@types/node@20.10.5)(ts-node@10.9.1)
+      jest-config: 29.7.0(@types/node@20.10.5)(ts-node@10.9.2)
       jest-resolve: 29.7.0
       jest-util: 29.7.0
       resolve.exports: 1.1.0
@@ -4108,15 +4108,15 @@ packages:
       - verdaccio
     dev: false
 
-  /@nx/nest@16.8.1(@swc/core@1.3.101)(@types/node@20.10.5)(eslint@8.49.0)(nx@16.8.1)(ts-node@10.9.1)(typescript@5.2.2)(verdaccio@5.26.2):
+  /@nx/nest@16.8.1(@swc/core@1.3.101)(@types/node@20.10.5)(eslint@8.49.0)(nx@16.8.1)(ts-node@10.9.2)(typescript@5.2.2)(verdaccio@5.26.2):
     resolution: {integrity: sha512-UB0IwVQomh98GSbSZzWqhFwp2MvXyogL6AY7k1GR7OT7od768Zk7ltKk9Gyxr7GOjOmzN3iWPU7h7nEN5x2CTw==}
     dependencies:
       '@nestjs/schematics': 9.2.0(typescript@5.2.2)
-      '@nrwl/nest': 16.8.1(@swc/core@1.3.101)(@types/node@20.10.5)(eslint@8.49.0)(nx@16.8.1)(ts-node@10.9.1)(typescript@5.2.2)(verdaccio@5.26.2)
+      '@nrwl/nest': 16.8.1(@swc/core@1.3.101)(@types/node@20.10.5)(eslint@8.49.0)(nx@16.8.1)(ts-node@10.9.2)(typescript@5.2.2)(verdaccio@5.26.2)
       '@nx/devkit': 16.8.1(nx@16.8.1)
       '@nx/js': 16.8.1(@swc/core@1.3.101)(@types/node@20.10.5)(nx@16.8.1)(typescript@5.2.2)(verdaccio@5.26.2)
       '@nx/linter': 16.8.1(@swc/core@1.3.101)(@types/node@20.10.5)(eslint@8.49.0)(nx@16.8.1)(verdaccio@5.26.2)
-      '@nx/node': 16.8.1(@swc/core@1.3.101)(@types/node@20.10.5)(eslint@8.49.0)(nx@16.8.1)(ts-node@10.9.1)(typescript@5.2.2)(verdaccio@5.26.2)
+      '@nx/node': 16.8.1(@swc/core@1.3.101)(@types/node@20.10.5)(eslint@8.49.0)(nx@16.8.1)(ts-node@10.9.2)(typescript@5.2.2)(verdaccio@5.26.2)
       '@phenomnomnominal/tsquery': 5.0.1(typescript@5.2.2)
       enquirer: 2.3.6
       semver: 7.5.3
@@ -4139,12 +4139,12 @@ packages:
       - verdaccio
     dev: false
 
-  /@nx/node@16.8.1(@swc/core@1.3.101)(@types/node@20.10.5)(eslint@8.49.0)(nx@16.8.1)(ts-node@10.9.1)(typescript@5.2.2)(verdaccio@5.26.2):
+  /@nx/node@16.8.1(@swc/core@1.3.101)(@types/node@20.10.5)(eslint@8.49.0)(nx@16.8.1)(ts-node@10.9.2)(typescript@5.2.2)(verdaccio@5.26.2):
     resolution: {integrity: sha512-ZCUJ7iSxTuAhe4zNZa344u+xqet3UI2mseXk6+N60GNBxoBrW7qLFLAckwGYeMnv38dn/MBxVXiEPA1R7mXJ1w==}
     dependencies:
-      '@nrwl/node': 16.8.1(@swc/core@1.3.101)(@types/node@20.10.5)(eslint@8.49.0)(nx@16.8.1)(ts-node@10.9.1)(typescript@5.2.2)(verdaccio@5.26.2)
+      '@nrwl/node': 16.8.1(@swc/core@1.3.101)(@types/node@20.10.5)(eslint@8.49.0)(nx@16.8.1)(ts-node@10.9.2)(typescript@5.2.2)(verdaccio@5.26.2)
       '@nx/devkit': 16.8.1(nx@16.8.1)
-      '@nx/jest': 16.8.1(@swc/core@1.3.101)(@types/node@20.10.5)(nx@16.8.1)(ts-node@10.9.1)(typescript@5.2.2)(verdaccio@5.26.2)
+      '@nx/jest': 16.8.1(@swc/core@1.3.101)(@types/node@20.10.5)(nx@16.8.1)(ts-node@10.9.2)(typescript@5.2.2)(verdaccio@5.26.2)
       '@nx/js': 16.8.1(@swc/core@1.3.101)(@types/node@20.10.5)(nx@16.8.1)(typescript@5.2.2)(verdaccio@5.26.2)
       '@nx/linter': 16.8.1(@swc/core@1.3.101)(@types/node@20.10.5)(eslint@8.49.0)(nx@16.8.1)(verdaccio@5.26.2)
       '@nx/workspace': 16.8.1(@swc/core@1.3.101)
@@ -7032,7 +7032,7 @@ packages:
       vary: 1.1.2
     dev: false
 
-  /cosmiconfig-typescript-loader@4.4.0(@types/node@20.4.7)(cosmiconfig@8.3.6)(ts-node@10.9.1)(typescript@5.2.2):
+  /cosmiconfig-typescript-loader@4.4.0(@types/node@20.4.7)(cosmiconfig@8.3.6)(ts-node@10.9.2)(typescript@5.2.2):
     resolution: {integrity: sha512-BabizFdC3wBHhbI4kJh0VkQP9GkBfoHPydD0COMce1nJ1kJAB3F2TmJ/I7diULBKtmEWSwEbuN/KDtgnmUUVmw==}
     engines: {node: '>=v14.21.3'}
     requiresBuild: true
@@ -7044,7 +7044,7 @@ packages:
     dependencies:
       '@types/node': 20.4.7
       cosmiconfig: 8.3.6(typescript@5.2.2)
-      ts-node: 10.9.1(@swc/core@1.3.101)(@types/node@20.4.7)(typescript@5.2.2)
+      ts-node: 10.9.2(@swc/core@1.3.101)(@types/node@20.4.7)(typescript@5.2.2)
       typescript: 5.2.2
     dev: false
 
@@ -7075,7 +7075,7 @@ packages:
       typescript: 5.2.2
     dev: false
 
-  /create-jest@29.7.0(@types/node@20.10.5)(ts-node@10.9.1):
+  /create-jest@29.7.0(@types/node@20.10.5)(ts-node@10.9.2):
     resolution: {integrity: sha512-Adz2bdH0Vq3F53KEMJOoftQFutWCukm6J24wbPWRO4k1kMY7gS7ds/uoJkNuV8wDCtWWnuwGcJwpWcih+zEW1Q==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     hasBin: true
@@ -7084,7 +7084,7 @@ packages:
       chalk: 4.1.2
       exit: 0.1.2
       graceful-fs: 4.2.11
-      jest-config: 29.7.0(@types/node@20.10.5)(ts-node@10.9.1)
+      jest-config: 29.7.0(@types/node@20.10.5)(ts-node@10.9.2)
       jest-util: 29.7.0
       prompts: 2.4.2
     transitivePeerDependencies:
@@ -9374,7 +9374,7 @@ packages:
       - supports-color
     dev: false
 
-  /jest-cli@29.7.0(@types/node@20.10.5)(ts-node@10.9.1):
+  /jest-cli@29.7.0(@types/node@20.10.5)(ts-node@10.9.2):
     resolution: {integrity: sha512-OVVobw2IubN/GSYsxETi+gOe7Ka59EFMR/twOU3Jb2GnKKeMGJB5SGUUrEz3SFVmJASUdZUzy83sLNNQ2gZslg==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     hasBin: true
@@ -9384,14 +9384,14 @@ packages:
       node-notifier:
         optional: true
     dependencies:
-      '@jest/core': 29.7.0(ts-node@10.9.1)
+      '@jest/core': 29.7.0(ts-node@10.9.2)
       '@jest/test-result': 29.7.0
       '@jest/types': 29.6.3
       chalk: 4.1.2
-      create-jest: 29.7.0(@types/node@20.10.5)(ts-node@10.9.1)
+      create-jest: 29.7.0(@types/node@20.10.5)(ts-node@10.9.2)
       exit: 0.1.2
       import-local: 3.1.0
-      jest-config: 29.7.0(@types/node@20.10.5)(ts-node@10.9.1)
+      jest-config: 29.7.0(@types/node@20.10.5)(ts-node@10.9.2)
       jest-util: 29.7.0
       jest-validate: 29.7.0
       yargs: 17.7.2
@@ -9402,7 +9402,7 @@ packages:
       - ts-node
     dev: false
 
-  /jest-config@29.7.0(@types/node@20.10.5)(ts-node@10.9.1):
+  /jest-config@29.7.0(@types/node@20.10.5)(ts-node@10.9.2):
     resolution: {integrity: sha512-uXbpfeQ7R6TZBqI3/TxCU4q4ttk3u0PJeC+E0zbfSoSjq6bJ7buBPxzQPL0ifrkY4DNu4JUdk0ImlBUYi840eQ==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     peerDependencies:
@@ -9437,7 +9437,7 @@ packages:
       pretty-format: 29.7.0
       slash: 3.0.0
       strip-json-comments: 3.1.1
-      ts-node: 10.9.1(@swc/core@1.3.101)(@types/node@20.10.5)(typescript@5.2.2)
+      ts-node: 10.9.2(@swc/core@1.3.101)(@types/node@20.10.5)(typescript@5.2.2)
     transitivePeerDependencies:
       - babel-plugin-macros
       - supports-color
@@ -9735,7 +9735,7 @@ packages:
       supports-color: 8.1.1
     dev: false
 
-  /jest@29.7.0(@types/node@20.10.5)(ts-node@10.9.1):
+  /jest@29.7.0(@types/node@20.10.5)(ts-node@10.9.2):
     resolution: {integrity: sha512-NIy3oAFp9shda19hy4HK0HRTWKtPJmGdnvywu01nOqNC2vZg+Z+fvJDxpMQA88eb2I9EcafcdjYgsDthnYTvGw==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     hasBin: true
@@ -9745,10 +9745,10 @@ packages:
       node-notifier:
         optional: true
     dependencies:
-      '@jest/core': 29.7.0(ts-node@10.9.1)
+      '@jest/core': 29.7.0(ts-node@10.9.2)
       '@jest/types': 29.6.3
       import-local: 3.1.0
-      jest-cli: 29.7.0(@types/node@20.10.5)(ts-node@10.9.1)
+      jest-cli: 29.7.0(@types/node@20.10.5)(ts-node@10.9.2)
     transitivePeerDependencies:
       - '@types/node'
       - babel-plugin-macros
@@ -11108,7 +11108,7 @@ packages:
     engines: {node: '>=4'}
     dev: false
 
-  /postcss-load-config@4.0.1(ts-node@10.9.1):
+  /postcss-load-config@4.0.1(ts-node@10.9.2):
     resolution: {integrity: sha512-vEJIc8RdiBRu3oRAI0ymerOn+7rPuMvRXslTvZUKZonDHFIczxztIyJ1urxM1x9JXEikvpWWTUUqal5j/8QgvA==}
     engines: {node: '>= 14'}
     peerDependencies:
@@ -11121,7 +11121,7 @@ packages:
         optional: true
     dependencies:
       lilconfig: 2.1.0
-      ts-node: 10.9.1(@swc/core@1.3.101)(@types/node@20.10.5)(typescript@5.2.2)
+      ts-node: 10.9.2(@swc/core@1.3.101)(@types/node@20.10.5)(typescript@5.2.2)
       yaml: 2.3.2
     dev: false
 
@@ -12497,7 +12497,7 @@ packages:
       bs-logger: 0.2.6
       esbuild: 0.19.3
       fast-json-stable-stringify: 2.1.0
-      jest: 29.7.0(@types/node@20.10.5)(ts-node@10.9.1)
+      jest: 29.7.0(@types/node@20.10.5)(ts-node@10.9.2)
       jest-util: 29.7.0
       json5: 2.2.3
       lodash.memoize: 4.1.2
@@ -12586,8 +12586,40 @@ packages:
       yn: 3.1.1
     dev: false
 
-  /ts-node@10.9.1(@swc/core@1.3.101)(@types/node@20.4.7)(typescript@5.2.2):
-    resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}
+  /ts-node@10.9.2(@swc/core@1.3.101)(@types/node@20.10.5)(typescript@5.2.2):
+    resolution: {integrity: sha512-f0FFpIdcHgn8zcPSbf1dRevwt047YMnaiJM3u2w2RewrB+fob/zePZcrOyQoLMMO7aBIddLcQIEK5dYjkLnGrQ==}
+    hasBin: true
+    peerDependencies:
+      '@swc/core': '>=1.2.50'
+      '@swc/wasm': '>=1.2.50'
+      '@types/node': '*'
+      typescript: '>=2.7'
+    peerDependenciesMeta:
+      '@swc/core':
+        optional: true
+      '@swc/wasm':
+        optional: true
+    dependencies:
+      '@cspotcode/source-map-support': 0.8.1
+      '@swc/core': 1.3.101
+      '@tsconfig/node10': 1.0.9
+      '@tsconfig/node12': 1.0.11
+      '@tsconfig/node14': 1.0.3
+      '@tsconfig/node16': 1.0.4
+      '@types/node': 20.10.5
+      acorn: 8.10.0
+      acorn-walk: 8.2.0
+      arg: 4.1.3
+      create-require: 1.1.1
+      diff: 4.0.2
+      make-error: 1.3.6
+      typescript: 5.2.2
+      v8-compile-cache-lib: 3.0.1
+      yn: 3.1.1
+    dev: false
+
+  /ts-node@10.9.2(@swc/core@1.3.101)(@types/node@20.4.7)(typescript@5.2.2):
+    resolution: {integrity: sha512-f0FFpIdcHgn8zcPSbf1dRevwt047YMnaiJM3u2w2RewrB+fob/zePZcrOyQoLMMO7aBIddLcQIEK5dYjkLnGrQ==}
     hasBin: true
     peerDependencies:
       '@swc/core': '>=1.2.50'
@@ -12658,7 +12690,7 @@ packages:
     engines: {node: '>=0.6.x'}
     dev: false
 
-  /tsup@7.2.0(@swc/core@1.3.101)(ts-node@10.9.1)(typescript@5.2.2):
+  /tsup@7.2.0(@swc/core@1.3.101)(ts-node@10.9.2)(typescript@5.2.2):
     resolution: {integrity: sha512-vDHlczXbgUvY3rWvqFEbSqmC1L7woozbzngMqTtL2PGBODTtWlRwGDDawhvWzr5c1QjKe4OAKqJGfE1xeXUvtQ==}
     engines: {node: '>=16.14'}
     hasBin: true
@@ -12683,7 +12715,7 @@ packages:
       execa: 5.1.1
       globby: 11.1.0
       joycon: 3.1.1
-      postcss-load-config: 4.0.1(ts-node@10.9.1)
+      postcss-load-config: 4.0.1(ts-node@10.9.2)
       resolve-from: 5.0.0
       rollup: 3.29.2
       source-map: 0.8.0-beta.0
