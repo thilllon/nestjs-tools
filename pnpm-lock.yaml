@@ -78,8 +78,8 @@ dependencies:
     specifier: ^18.2.45
     version: 18.2.45
   '@types/supertest':
-    specifier: ^2.0.12
-    version: 2.0.12
+    specifier: ^6.0.0
+    version: 6.0.0
   '@typescript-eslint/eslint-plugin':
     specifier: ^6.15.0
     version: 6.15.0(@typescript-eslint/parser@6.15.0)(eslint@8.49.0)(typescript@5.2.2)
@@ -5132,6 +5132,10 @@ packages:
     resolution: {integrity: sha512-trNJ/vtMZYMLhfN45uLq4ShQSw0/S7xCTLLVM+WM1rmFpba/VS42jVUgaO3w/NOLiWR/09lnYk0yMaA/atdIsg==}
     dev: false
 
+  /@types/methods@1.1.4:
+    resolution: {integrity: sha512-ymXWVrDiCxTBE3+RIrrP533E70eA+9qu7zdWoHuOmGujkYtzf4HQF96b8nwHLqhuf4ykX61IGRIB38CC6/sImQ==}
+    dev: false
+
   /@types/minimist@1.2.2:
     resolution: {integrity: sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==}
     dev: false
@@ -5193,9 +5197,11 @@ packages:
       '@types/node': 20.10.5
     dev: false
 
-  /@types/supertest@2.0.12:
-    resolution: {integrity: sha512-X3HPWTwXRerBZS7Mo1k6vMVR1Z6zmJcDVn5O/31whe0tnjE4te6ZJSJGq1RiqHPjzPdMTfjCFogDJmwng9xHaQ==}
+  /@types/supertest@6.0.0:
+    resolution: {integrity: sha512-j3/Z2avY+H3yn+xp/ef//QyqqE+dg3rWh14Ewi/QZs6uVK+oOs7lFRXtjp2YHAqHJZ4OFGNmCxZO5vd7AuG/Dg==}
     dependencies:
+      '@types/cookiejar': 2.1.2
+      '@types/methods': 1.1.4
       '@types/superagent': 4.1.18
     dev: false
 
