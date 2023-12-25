@@ -72,7 +72,7 @@
     "sharp": "^0.33.1",
     "supertest": "^6.3.3",
     "ts-jest": "^29.1.1",
-    "ts-loader": "^9.4.4",
+    "ts-loader": "^9.5.1",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
     "tslib": "^2.6.2",
