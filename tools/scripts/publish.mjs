@@ -3,10 +3,9 @@
  * This is meant to be used as-is or customize as you see fit.
  *
  * This script is executed on "dist/path/to/library" as "cwd" by default.
- *
  * You might need to authenticate with NPM before running this script.
  *
- * @example nx run @nestjs-tools/aws-s3:publish --args=\"--ver=0.0.2 --tag=latest\"
+ * @example nx run @nestjs-tools/cloudinary:publish --args=--version=0.0.2,--tag=latest
  */
 
 import { readFileSync, writeFileSync } from 'fs';

@@ -27,7 +27,7 @@ export class AwsS3Module {
     return {
       module: AwsS3Module,
       providers: [optionsProvider, clientProvider],
-      // exports: [optionsProvider, clientProvider],
+      exports: [optionsProvider, clientProvider],
       global: extras?.global,
     };
   }
@@ -38,12 +38,13 @@ export class AwsS3Module {
       useFactory: (options: ModuleOptions) => this.createClient(options),
       inject: [getOptionsToken(extras?.alias)],
     };
+    const asyncProviders = this.createAsyncProviders(options, extras);
 
     return {
       module: AwsS3Module,
       imports: options.imports,
-      providers: [...this.createAsyncProviders(options, extras), clientProvider],
-      exports: [clientProvider],
+      providers: [clientProvider, ...asyncProviders],
+      exports: [clientProvider, ...asyncProviders],
       global: extras?.global,
     };
   }
@@ -76,7 +77,7 @@ export class AwsS3Module {
       return {
         provide: getOptionsToken(extras?.alias),
         async useFactory(optionsFactory: ModuleOptionsFactory): Promise<ModuleOptions> {
-          return optionsFactory.createModuleOptions();
+          return optionsFactory.create();
         },
         inject: [options.useClass || options.useExisting] as Type<ModuleOptionsFactory>[],
       };

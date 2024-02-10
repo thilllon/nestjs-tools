@@ -70,7 +70,7 @@ describe('StorageBlobService', () => {
   });
 
   test('should be valid URL', async () => {
-    const containerName = process.env.NEST_STORAGE_BLOB_CONTAINER;
+    const containerName = process.env.NESTJS_STORAGE_BLOB_CONTAINER;
     const fileName = 'image.jpg';
 
     const { sasUrl, headers } = await service.getBlockBlobSasUrl(

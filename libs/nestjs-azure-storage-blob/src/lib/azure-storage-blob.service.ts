@@ -32,7 +32,7 @@ export class AzureStorageBlobService {
     @InjectStorageBlob()
     private readonly blobServiceClient: BlobServiceClient,
   ) {
-    this.containerName = process.env.NEST_STORAGE_BLOB_CONTAINER;
+    this.containerName = process.env.NESTJS_STORAGE_BLOB_CONTAINER;
   }
 
   getClient() {

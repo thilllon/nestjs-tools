@@ -12,7 +12,7 @@ describe('S3Module', () => {
 
   @Injectable()
   class FooService implements ModuleOptionsFactory {
-    createModuleOptions(): ModuleOptions {
+    create(): ModuleOptions {
       return { credentials: { accessKeyId, secretAccessKey } };
     }
   }
@@ -78,11 +78,17 @@ describe('S3Module', () => {
     describe('when `useClass` option is used', () => {
       it('should provide s3 client', async () => {
         const module = await Test.createTestingModule({
-          imports: [AwsS3Module.registerAsync({ useClass: FooService }, { alias: 'hello' })],
+          imports: [
+            AwsS3Module.registerAsync(
+              {
+                useClass: FooService,
+              },
+              { alias: 'hello' },
+            ),
+          ],
         }).compile();
 
         const s3Client = module.get<S3Client>(getClientToken('hello'));
-        expect(s3Client).toBeDefined();
         expect(s3Client).toBeInstanceOf(S3Client);
 
         // expect(module.get<S3Client>(getClientToken('goodbye'))).toThrow();

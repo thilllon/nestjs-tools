@@ -17,16 +17,14 @@
     },
     "publish": {
       "command": "node tools/scripts/publish.mjs nestjs-azure-storage-blob {args.version} {args.tag}",
+      "description": "Publishes the package to npm",
       "dependsOn": ["build"]
     },
     "lint": {
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "libs/nestjs-azure-storage-blob/**/*.ts",
-          "libs/nestjs-azure-storage-blob/package.json"
-        ]
+        "lintFilePatterns": ["libs/nestjs-azure-storage-blob/**/*.ts"]
       }
     },
     "test": {
