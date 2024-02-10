@@ -16,17 +16,14 @@
       }
     },
     "publish": {
-      "command": "node tools/scripts/publish.mjs @nestjs-tools/cloudinary {args.ver} {args.tag}",
+      "command": "node tools/scripts/publish.mjs @nestjs-tools/cloudinary {args.version} {args.tag}",
       "dependsOn": ["build"]
     },
     "lint": {
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "libs/nestjs-tools/cloudinary/**/*.ts",
-          "libs/nestjs-tools/cloudinary/package.json"
-        ]
+        "lintFilePatterns": ["libs/nestjs-tools/cloudinary/**/*.ts"]
       }
     },
     "test": {

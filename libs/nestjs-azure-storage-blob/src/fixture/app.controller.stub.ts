@@ -10,8 +10,7 @@ export class AppController {
 
   @Get('/')
   async getSas(
-    @Query('containerName')
-    containerName = process.env.NEST_STORAGE_BLOB_CONTAINER,
+    @Query('containerName') containerName = process.env.NESTJS_STORAGE_BLOB_CONTAINER,
     @Query('fileName') fileName = 'image.jpg',
   ) {
     const expiresOn = new Date(Date.now() + 3600 * 1000);
@@ -32,8 +31,7 @@ export class AppController {
 
   @Get('/upload')
   async upload(
-    @Query('containerName')
-    containerName = process.env.NEST_STORAGE_BLOB_CONTAINER,
+    @Query('containerName') containerName = process.env.NESTJS_STORAGE_BLOB_CONTAINER,
     @Query('fileName') fileName = 'image.jpg',
   ) {
     const expiresOn = new Date(Date.now() + 3600 * 1000);

@@ -12,7 +12,7 @@ describe('AwsS3Service', () => {
 
   @Injectable()
   class CorrectOptionsService implements ModuleOptionsFactory {
-    createModuleOptions(): ModuleOptions | Promise<ModuleOptions> {
+    create(): ModuleOptions | Promise<ModuleOptions> {
       return {
         credentials: {
           accessKeyId: process.env.AWS_S3_ACCESS_KEY as string,

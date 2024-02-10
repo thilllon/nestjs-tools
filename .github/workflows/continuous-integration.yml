@@ -14,10 +14,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Install Node v16
+      - name: Install Node v20
         uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 20
           cache: yarn
           cache-dependency-path: yarn.lock
 
@@ -34,6 +34,6 @@ jobs:
         run: yarn test --coverage
 
       - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

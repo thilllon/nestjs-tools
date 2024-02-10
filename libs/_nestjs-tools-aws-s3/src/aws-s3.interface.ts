@@ -36,7 +36,7 @@ export interface ExtraModuleOptions {
 }
 
 export interface ModuleOptionsFactory {
-  createModuleOptions(): Promise<ModuleOptions> | ModuleOptions;
+  create(): Promise<ModuleOptions> | ModuleOptions;
 }
 
 export interface AsyncModuleOptions extends Pick<ModuleMetadata, 'imports'> {

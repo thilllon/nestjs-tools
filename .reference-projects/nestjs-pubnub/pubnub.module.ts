@@ -1,9 +1,4 @@
-import {
-  ConfigurableModuleBuilder,
-  Inject,
-  Injectable,
-  Module,
-} from '@nestjs/common';
+import { ConfigurableModuleBuilder, Inject, Injectable, Module } from '@nestjs/common';
 import * as PubNub from 'pubnub';
 import { PubnubConfig } from 'pubnub';
 
@@ -16,9 +11,7 @@ export const getOptionsToken = (alias?: string) => {
 
 @Injectable()
 export class PubNubService extends PubNub {
-  constructor(
-    @Inject(getOptionsToken()) private readonly options: PubnubConfig
-  ) {
+  constructor(@Inject(getOptionsToken()) private readonly options: PubnubConfig) {
     super(options);
   }
 }
@@ -57,7 +50,7 @@ export class ChatService {
   private readonly pubNub: PubNub;
   constructor(
     private readonly pubNubService: PubNubService,
-    @Inject(getOptionsToken()) private readonly options: PubnubConfig
+    @Inject(getOptionsToken()) private readonly options: PubnubConfig,
   ) {
     this.pubNub = new PubNub(options);
   }

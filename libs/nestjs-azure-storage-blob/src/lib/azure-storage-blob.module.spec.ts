@@ -13,7 +13,7 @@ describe('initialize StorageBlobModule using `forRoot`', () => {
     const module = await Test.createTestingModule({
       imports: [
         AzureStorageBlobModule.register({
-          connection: process.env.NEST_STORAGE_BLOB_CONNECTION,
+          connection: process.env.NESTJS_STORAGE_BLOB_CONNECTION,
         }),
       ],
     }).compile();
@@ -40,7 +40,7 @@ describe('global StorageBlobModule', () => {
         AzureStorageBlobModule.registerAsync(
           {
             useFactory: () => ({
-              connection: process.env.NEST_STORAGE_BLOB_CONNECTION,
+              connection: process.env.NESTJS_STORAGE_BLOB_CONNECTION,
             }),
           },
           {
@@ -48,6 +48,7 @@ describe('global StorageBlobModule', () => {
           },
         ),
       ],
+      providers: [],
     }).compile();
 
     service = module.get<AzureStorageBlobService>(AzureStorageBlobService);
@@ -67,7 +68,7 @@ describe('initialize StorageBlobModule using `forRootAsync`', () => {
       imports: [
         AzureStorageBlobModule.registerAsync({
           useFactory: () => ({
-            connection: process.env.NEST_STORAGE_BLOB_CONNECTION,
+            connection: process.env.NESTJS_STORAGE_BLOB_CONNECTION,
           }),
         }),
       ],
@@ -95,7 +96,7 @@ describe('global StorageBlobModule', () => {
         AzureStorageBlobModule.registerAsync(
           {
             useFactory: () => ({
-              connection: process.env.NEST_STORAGE_BLOB_CONNECTION,
+              connection: process.env.NESTJS_STORAGE_BLOB_CONNECTION,
             }),
           },
           {

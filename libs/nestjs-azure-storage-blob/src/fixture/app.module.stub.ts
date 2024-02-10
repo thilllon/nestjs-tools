@@ -5,7 +5,7 @@ import { AppController } from './app.controller.stub';
 @Module({
   imports: [
     AzureStorageBlobModule.registerAsync({
-      useFactory: () => ({ connection: process.env.NEST_STORAGE_BLOB_CONNECTION ?? '' }),
+      useFactory: () => ({ connection: process.env.NESTJS_STORAGE_BLOB_CONNECTION ?? '' }),
     }),
   ],
   controllers: [AppController],

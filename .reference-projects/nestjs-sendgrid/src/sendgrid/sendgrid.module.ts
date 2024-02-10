@@ -49,7 +49,7 @@ export class SendgridModule {
 
   private static createAsyncProviders(
     options: AsyncModuleOptions,
-    extras?: ExtraModuleOptions
+    extras?: ExtraModuleOptions,
   ): Provider[] {
     if (options.useClass) {
       return [
@@ -63,13 +63,13 @@ export class SendgridModule {
     }
 
     throw new Error(
-      'Invalid configuration. One of useClass, useExisting or useFactory must be defined.'
+      'Invalid configuration. One of useClass, useExisting or useFactory must be defined.',
     );
   }
 
   private static createAsyncOptionsProvider(
     options: AsyncModuleOptions,
-    extras?: ExtraModuleOptions
+    extras?: ExtraModuleOptions,
   ): Provider {
     if (options.useClass || options.useExisting) {
       return {
@@ -90,7 +90,7 @@ export class SendgridModule {
     }
 
     throw new Error(
-      'Invalid configuration. One of useClass, useExisting or useFactory must be defined.'
+      'Invalid configuration. One of useClass, useExisting or useFactory must be defined.',
     );
   }
 
