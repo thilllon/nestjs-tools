@@ -29,7 +29,7 @@
     "@nx/linter": "^18.0.4",
     "@nx/nest": "^18.0.4",
     "@nx/vite": "^18.0.4",
-    "@nx/workspace": "^18.0.4",
+    "@nx/workspace": "^18.0.6",
     "@sendgrid/client": "^8.1.0",
     "@swc/core": "^1.4.0",
     "@types/jest": "^29.5.12",
