@@ -49,7 +49,7 @@
     "cosmiconfig": "^9.0.0",
     "cz-conventional-changelog": "^3.3.0",
     "dotenv": "^16.4.1",
-    "esbuild": "^0.20.0",
+    "esbuild": "^0.20.1",
     "eslint": "^8.56.0",
     "eslint-config-next": "^14.1.0",
     "eslint-config-prettier": "^9.1.0",
