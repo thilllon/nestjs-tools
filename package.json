@@ -30,7 +30,7 @@
     "@nx/nest": "^18.0.4",
     "@nx/vite": "^18.0.4",
     "@nx/workspace": "^18.0.4",
-    "@sendgrid/client": "^8.1.0",
+    "@sendgrid/client": "^8.1.1",
     "@swc/core": "^1.4.0",
     "@types/jest": "^29.5.12",
     "@types/node": "^20.11.17",
