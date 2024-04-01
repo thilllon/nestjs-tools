@@ -48,8 +48,8 @@ dependencies:
     specifier: ^18.0.4
     version: 18.0.4(@swc/core@1.4.11)(@types/node@20.12.2)(nx@18.2.1)(ts-node@10.9.2)(typescript@5.4.3)(verdaccio@5.29.0)
   '@nx/js':
-    specifier: ^18.0.4
-    version: 18.0.4(@swc/core@1.4.11)(@types/node@20.12.2)(nx@18.2.1)(typescript@5.4.3)(verdaccio@5.29.0)
+    specifier: ^18.2.1
+    version: 18.2.1(@swc/core@1.4.11)(@types/node@20.12.2)(nx@18.2.1)(typescript@5.4.3)(verdaccio@5.29.0)
   '@nx/linter':
     specifier: ^18.0.4
     version: 18.0.4(@swc/core@1.4.11)(@types/node@20.12.2)(nx@18.2.1)(verdaccio@5.29.0)
