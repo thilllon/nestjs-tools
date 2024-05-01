@@ -36,8 +36,8 @@ dependencies:
     specifier: ^10.1.1
     version: 10.1.1(typescript@5.4.3)
   '@nestjs/testing':
-    specifier: ^10.3.7
-    version: 10.3.7(@nestjs/common@10.3.8)(@nestjs/core@10.3.8)(@nestjs/platform-express@10.3.8)
+    specifier: ^10.3.8
+    version: 10.3.8(@nestjs/common@10.3.8)(@nestjs/core@10.3.8)(@nestjs/platform-express@10.3.8)
   '@nx/devkit':
     specifier: ^18.3.4
     version: 18.3.4(nx@18.2.1)
@@ -3668,8 +3668,8 @@ packages:
       - chokidar
     dev: false
 
-  /@nestjs/testing@10.3.7(@nestjs/common@10.3.8)(@nestjs/core@10.3.8)(@nestjs/platform-express@10.3.8):
-    resolution: {integrity: sha512-PmwZXyoCC/m3F3IFgpgD+SNN6cDPQa/vi3YQxFruvfX3cuHq+P6ZFvBB7hwaKKsLlhA0so42LsMm41oFBkdouw==}
+  /@nestjs/testing@10.3.8(@nestjs/common@10.3.8)(@nestjs/core@10.3.8)(@nestjs/platform-express@10.3.8):
+    resolution: {integrity: sha512-hpX9das2TdFTKQ4/2ojhjI6YgXtCfXRKui3A4Qaj54VVzc5+mtK502Jj18Vzji98o9MVS6skmYu+S/UvW3U6Fw==}
     peerDependencies:
       '@nestjs/common': ^10.0.0
       '@nestjs/core': ^10.0.0
@@ -3835,14 +3835,6 @@ packages:
     resolution: {integrity: sha512-Fty9Huqm12OYueU3uLJl3uvBUl5BvEyPfvw8+rLiNx9iftdEattM8C+268eAbIRRSLSOVXlWsJH4brlc6QZYYw==}
     dependencies:
       '@nx/devkit': 18.3.4(nx@18.2.1)
-    transitivePeerDependencies:
-      - nx
-    dev: false
-
-  /@nrwl/devkit@18.3.4(nx@18.3.4):
-    resolution: {integrity: sha512-Fty9Huqm12OYueU3uLJl3uvBUl5BvEyPfvw8+rLiNx9iftdEattM8C+268eAbIRRSLSOVXlWsJH4brlc6QZYYw==}
-    dependencies:
-      '@nx/devkit': 18.3.4(nx@18.3.4)
     transitivePeerDependencies:
       - nx
     dev: false
@@ -4210,7 +4202,7 @@ packages:
     peerDependencies:
       nx: '>= 16 <= 19'
     dependencies:
-      '@nrwl/devkit': 18.3.4(nx@18.3.4)
+      '@nrwl/devkit': 18.3.4(nx@18.2.1)
       ejs: 3.1.9
       enquirer: 2.3.6
       ignore: 5.3.1
