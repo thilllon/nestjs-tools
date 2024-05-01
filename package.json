@@ -15,7 +15,7 @@
     "@azure/storage-blob": "^12.17.0",
     "@babel/core": "^7.24.5",
     "@commitlint/cli": "^18.6.0",
-    "@commitlint/config-conventional": "^18.6.0",
+    "@commitlint/config-conventional": "^19.2.2",
     "@nestjs/cli": "^10.3.2",
     "@nestjs/common": "^10.3.8",
     "@nestjs/core": "^10.3.8",
