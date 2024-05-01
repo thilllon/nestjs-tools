@@ -24,20 +24,20 @@ dependencies:
     specifier: ^10.3.2
     version: 10.3.2(@swc/core@1.4.11)(esbuild@0.20.2)
   '@nestjs/common':
-    specifier: ^10.3.2
-    version: 10.3.2(reflect-metadata@0.2.2)(rxjs@7.8.1)
+    specifier: ^10.3.8
+    version: 10.3.8(reflect-metadata@0.2.2)(rxjs@7.8.1)
   '@nestjs/core':
     specifier: ^10.3.8
-    version: 10.3.8(@nestjs/common@10.3.2)(@nestjs/platform-express@10.3.7)(reflect-metadata@0.2.2)(rxjs@7.8.1)
+    version: 10.3.8(@nestjs/common@10.3.8)(@nestjs/platform-express@10.3.7)(reflect-metadata@0.2.2)(rxjs@7.8.1)
   '@nestjs/platform-express':
     specifier: ^10.3.7
-    version: 10.3.7(@nestjs/common@10.3.2)(@nestjs/core@10.3.8)
+    version: 10.3.7(@nestjs/common@10.3.8)(@nestjs/core@10.3.8)
   '@nestjs/schematics':
     specifier: ^10.1.1
     version: 10.1.1(typescript@5.4.3)
   '@nestjs/testing':
     specifier: ^10.3.7
-    version: 10.3.7(@nestjs/common@10.3.2)(@nestjs/core@10.3.8)(@nestjs/platform-express@10.3.7)
+    version: 10.3.7(@nestjs/common@10.3.8)(@nestjs/core@10.3.8)(@nestjs/platform-express@10.3.7)
   '@nx/devkit':
     specifier: ^18.0.4
     version: 18.0.4(nx@18.2.1)
@@ -1201,13 +1201,6 @@ packages:
       '@babel/types': 7.23.9
     dev: false
 
-  /@babel/helper-module-imports@7.22.15:
-    resolution: {integrity: sha512-0pYVBnDKZO2fnSPCrgM/6WMc7eS20Fbok+0r88fp+YtWVLZrp4CkafFGIp+W0VKw4a22sgebPT99y+FDNMdP4w==}
-    engines: {node: '>=6.9.0'}
-    dependencies:
-      '@babel/types': 7.23.9
-    dev: false
-
   /@babel/helper-module-imports@7.24.3:
     resolution: {integrity: sha512-viKb0F9f2s0BCS22QSF308z/+1YWKV/76mwt61NBzS5izMzDPwdq1pTrzf+Li3npBWX9KdQbkeCt1jSAM7lZqg==}
     engines: {node: '>=6.9.0'}
@@ -1223,7 +1216,7 @@ packages:
     dependencies:
       '@babel/core': 7.24.5
       '@babel/helper-environment-visitor': 7.22.20
-      '@babel/helper-module-imports': 7.22.15
+      '@babel/helper-module-imports': 7.24.3
       '@babel/helper-simple-access': 7.22.5
       '@babel/helper-split-export-declaration': 7.22.6
       '@babel/helper-validator-identifier': 7.22.20
@@ -1686,7 +1679,7 @@ packages:
       '@babel/core': ^7.0.0-0
     dependencies:
       '@babel/core': 7.24.5
-      '@babel/helper-module-imports': 7.22.15
+      '@babel/helper-module-imports': 7.24.3
       '@babel/helper-plugin-utils': 7.22.5
       '@babel/helper-remap-async-to-generator': 7.22.20(@babel/core@7.24.5)
     dev: false
@@ -2101,7 +2094,7 @@ packages:
       '@babel/core': ^7.0.0-0
     dependencies:
       '@babel/core': 7.24.5
-      '@babel/helper-module-imports': 7.22.15
+      '@babel/helper-module-imports': 7.24.3
       '@babel/helper-plugin-utils': 7.22.5
       babel-plugin-polyfill-corejs2: 0.4.8(@babel/core@7.24.5)
       babel-plugin-polyfill-corejs3: 0.9.0(@babel/core@7.24.5)
@@ -3654,8 +3647,8 @@ packages:
       - webpack-cli
     dev: false
 
-  /@nestjs/common@10.3.2(reflect-metadata@0.2.2)(rxjs@7.8.1):
-    resolution: {integrity: sha512-yrtohmQlN5J/gFS/ui86SO+KIfUKeL39JPR3f/3AWgpz+duIfc9cGkfh7FGZQMfG9ZqXf7Zw+PRO9G+D4iEbPw==}
+  /@nestjs/common@10.3.8(reflect-metadata@0.2.2)(rxjs@7.8.1):
+    resolution: {integrity: sha512-P+vPEIvqx2e+fonsYVlFXKvoChyJ8Tq+lfpqdVFqblovHbFr3kZ/nYX0cPs+XuW6bnRT8tz0SSR9XBGU43kJhw==}
     peerDependencies:
       class-transformer: '*'
       class-validator: '*'
@@ -3674,7 +3667,7 @@ packages:
       uid: 2.0.2
     dev: false
 
-  /@nestjs/core@10.3.8(@nestjs/common@10.3.2)(@nestjs/platform-express@10.3.7)(reflect-metadata@0.2.2)(rxjs@7.8.1):
+  /@nestjs/core@10.3.8(@nestjs/common@10.3.8)(@nestjs/platform-express@10.3.7)(reflect-metadata@0.2.2)(rxjs@7.8.1):
     resolution: {integrity: sha512-AxF4tpYLDNn5Wfb3C4bNaaHJ4pREH5FJrSisR2A5zkYpQFORFs0Tc36lOFPMwBTy8Iv2wUwWLUVc5ftBnxEv4w==}
     requiresBuild: true
     peerDependencies:
@@ -3692,8 +3685,8 @@ packages:
       '@nestjs/websockets':
         optional: true
     dependencies:
-      '@nestjs/common': 10.3.2(reflect-metadata@0.2.2)(rxjs@7.8.1)
-      '@nestjs/platform-express': 10.3.7(@nestjs/common@10.3.2)(@nestjs/core@10.3.8)
+      '@nestjs/common': 10.3.8(reflect-metadata@0.2.2)(rxjs@7.8.1)
+      '@nestjs/platform-express': 10.3.7(@nestjs/common@10.3.8)(@nestjs/core@10.3.8)
       '@nuxtjs/opencollective': 0.3.2
       fast-safe-stringify: 2.1.1
       iterare: 1.2.1
@@ -3706,14 +3699,14 @@ packages:
       - encoding
     dev: false
 
-  /@nestjs/platform-express@10.3.7(@nestjs/common@10.3.2)(@nestjs/core@10.3.8):
+  /@nestjs/platform-express@10.3.7(@nestjs/common@10.3.8)(@nestjs/core@10.3.8):
     resolution: {integrity: sha512-noNJ+PyIxQJLCKfuXz0tcQtlVAynfLIuKy62g70lEZ86UrIqSrZFqvWs/rFUgkbT6J8H7Rmv11hASOnX+7M2rA==}
     peerDependencies:
       '@nestjs/common': ^10.0.0
       '@nestjs/core': ^10.0.0
     dependencies:
-      '@nestjs/common': 10.3.2(reflect-metadata@0.2.2)(rxjs@7.8.1)
-      '@nestjs/core': 10.3.8(@nestjs/common@10.3.2)(@nestjs/platform-express@10.3.7)(reflect-metadata@0.2.2)(rxjs@7.8.1)
+      '@nestjs/common': 10.3.8(reflect-metadata@0.2.2)(rxjs@7.8.1)
+      '@nestjs/core': 10.3.8(@nestjs/common@10.3.8)(@nestjs/platform-express@10.3.7)(reflect-metadata@0.2.2)(rxjs@7.8.1)
       body-parser: 1.20.2
       cors: 2.8.5
       express: 4.19.2
@@ -3767,7 +3760,7 @@ packages:
       - chokidar
     dev: false
 
-  /@nestjs/testing@10.3.7(@nestjs/common@10.3.2)(@nestjs/core@10.3.8)(@nestjs/platform-express@10.3.7):
+  /@nestjs/testing@10.3.7(@nestjs/common@10.3.8)(@nestjs/core@10.3.8)(@nestjs/platform-express@10.3.7):
     resolution: {integrity: sha512-PmwZXyoCC/m3F3IFgpgD+SNN6cDPQa/vi3YQxFruvfX3cuHq+P6ZFvBB7hwaKKsLlhA0so42LsMm41oFBkdouw==}
     peerDependencies:
       '@nestjs/common': ^10.0.0
@@ -3780,9 +3773,9 @@ packages:
       '@nestjs/platform-express':
         optional: true
     dependencies:
-      '@nestjs/common': 10.3.2(reflect-metadata@0.2.2)(rxjs@7.8.1)
-      '@nestjs/core': 10.3.8(@nestjs/common@10.3.2)(@nestjs/platform-express@10.3.7)(reflect-metadata@0.2.2)(rxjs@7.8.1)
-      '@nestjs/platform-express': 10.3.7(@nestjs/common@10.3.2)(@nestjs/core@10.3.8)
+      '@nestjs/common': 10.3.8(reflect-metadata@0.2.2)(rxjs@7.8.1)
+      '@nestjs/core': 10.3.8(@nestjs/common@10.3.8)(@nestjs/platform-express@10.3.7)(reflect-metadata@0.2.2)(rxjs@7.8.1)
+      '@nestjs/platform-express': 10.3.7(@nestjs/common@10.3.8)(@nestjs/core@10.3.8)
       tslib: 2.6.2
     dev: false
 
@@ -4639,20 +4632,20 @@ packages:
       verdaccio:
         optional: true
     dependencies:
-      '@babel/core': 7.23.9
-      '@babel/plugin-proposal-decorators': 7.23.9(@babel/core@7.23.9)
-      '@babel/plugin-transform-class-properties': 7.23.3(@babel/core@7.23.9)
-      '@babel/plugin-transform-runtime': 7.23.9(@babel/core@7.23.9)
-      '@babel/preset-env': 7.23.9(@babel/core@7.23.9)
-      '@babel/preset-typescript': 7.23.3(@babel/core@7.23.9)
+      '@babel/core': 7.24.5
+      '@babel/plugin-proposal-decorators': 7.23.9(@babel/core@7.24.5)
+      '@babel/plugin-transform-class-properties': 7.23.3(@babel/core@7.24.5)
+      '@babel/plugin-transform-runtime': 7.23.9(@babel/core@7.24.5)
+      '@babel/preset-env': 7.23.9(@babel/core@7.24.5)
+      '@babel/preset-typescript': 7.23.3(@babel/core@7.24.5)
       '@babel/runtime': 7.23.9
       '@nrwl/js': 18.3.4(@swc/core@1.4.11)(@types/node@20.12.2)(nx@18.2.1)(typescript@5.4.3)(verdaccio@5.29.0)
       '@nx/devkit': 18.3.4(nx@18.2.1)
       '@nx/workspace': 18.3.4(@swc/core@1.4.11)
       '@phenomnomnominal/tsquery': 5.0.1(typescript@5.4.3)
-      babel-plugin-const-enum: 1.2.0(@babel/core@7.23.9)
+      babel-plugin-const-enum: 1.2.0(@babel/core@7.24.5)
       babel-plugin-macros: 2.8.0
-      babel-plugin-transform-typescript-metadata: 0.3.2(@babel/core@7.23.9)
+      babel-plugin-transform-typescript-metadata: 0.3.2(@babel/core@7.24.5)
       chalk: 4.1.2
       columnify: 1.6.0
       detect-port: 1.5.1
