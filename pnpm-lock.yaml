@@ -39,8 +39,8 @@ dependencies:
     specifier: ^10.3.7
     version: 10.3.7(@nestjs/common@10.3.8)(@nestjs/core@10.3.8)(@nestjs/platform-express@10.3.7)
   '@nx/devkit':
-    specifier: ^18.0.4
-    version: 18.0.4(nx@18.2.1)
+    specifier: ^18.3.4
+    version: 18.3.4(nx@18.2.1)
   '@nx/eslint-plugin':
     specifier: ^18.3.4
     version: 18.3.4(@swc/core@1.4.11)(@types/node@20.12.2)(@typescript-eslint/parser@6.21.0)(eslint-config-prettier@9.1.0)(eslint@8.56.0)(nx@18.2.1)(typescript@5.4.3)(verdaccio@5.29.0)
