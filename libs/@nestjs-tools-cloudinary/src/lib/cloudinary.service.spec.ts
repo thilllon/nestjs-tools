@@ -49,7 +49,7 @@ describe('CloudinaryService', () => {
       eager: 'eager',
       signature: expect.any(String),
       timestamp: expect.any(String),
-      url: 'https://api.cloudinary.com/v1_1/nestjs-tools-cloudinary/image/upload',
+      url: `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_CLOUD_NAME}/image/upload`,
     });
   });
 });
