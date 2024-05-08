@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@nestjs-tools/cloudinary": ["libs/@nestjs-tools-cloudinary/src/index.ts"],
       "nestjs-pubnub": ["libs/nestjs-pubnub/src/index.ts"]
     }
   },
