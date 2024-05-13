@@ -41,7 +41,11 @@
       "options": {
         "parallel": true,
         "cwd": "libs/nestjs-azure-storage-blob/client",
-        "commands": [{ "command": "next dev --port 3000", "color": "green" }]
+        "commands": [
+          {
+            "command": "next dev --port 3000"
+          }
+        ]
       }
     }
   }
