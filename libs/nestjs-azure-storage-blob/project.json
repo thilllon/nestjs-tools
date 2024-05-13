@@ -35,6 +35,14 @@
       "options": {
         "jestConfig": "libs/nestjs-azure-storage-blob/jest.config.ts"
       }
+    },
+    "example": {
+      "executor": "nx:run-commands",
+      "options": {
+        "parallel": true,
+        "cwd": "libs/nestjs-azure-storage-blob/client",
+        "commands": [{ "command": "next dev --port 3000", "color": "green" }]
+      }
     }
   }
 }
