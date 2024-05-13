@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@nestjs-tools/cloudinary": ["libs/@nestjs-tools-cloudinary/src/index.ts"],
+      "nestjs-azure-storage-blob": ["libs/nestjs-azure-storage-blob/src/index.ts"],
       "nestjs-pubnub": ["libs/nestjs-pubnub/src/index.ts"]
     }
   },
