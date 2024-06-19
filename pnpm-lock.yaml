@@ -2464,6 +2464,7 @@ packages:
   /@commitlint/config-validator@19.0.3:
     resolution: {integrity: sha512-2D3r4PKjoo59zBc2auodrSCaUnCSALCx54yveOFwwP/i2kfEAQrygwOleFWswLqK0UL/F9r07MFi5ev2ohyM4Q==}
     engines: {node: '>=v18'}
+    requiresBuild: true
     dependencies:
       '@commitlint/types': 19.0.3
       ajv: 8.14.0
@@ -2484,6 +2485,7 @@ packages:
   /@commitlint/execute-rule@19.0.0:
     resolution: {integrity: sha512-mtsdpY1qyWgAO/iOK0L6gSGeR7GFcdW7tIjcNFxcWkfLDF5qVbPHKuGATFqRMsxcO8OUKNj0+3WOHB7EHm4Jdw==}
     engines: {node: '>=v18'}
+    requiresBuild: true
     dev: false
 
   /@commitlint/format@19.3.0:
@@ -2559,6 +2561,7 @@ packages:
   /@commitlint/resolve-extends@19.1.0:
     resolution: {integrity: sha512-z2riI+8G3CET5CPgXJPlzftH+RiWYLMYv4C9tSLdLXdr6pBNimSKukYP9MS27ejmscqCTVA4almdLh0ODD2KYg==}
     engines: {node: '>=v18'}
+    requiresBuild: true
     dependencies:
       '@commitlint/config-validator': 19.0.3
       '@commitlint/types': 19.0.3
@@ -3933,14 +3936,6 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.17.1
 
-  /@nrwl/devkit@18.3.4(nx@18.3.4):
-    resolution: {integrity: sha512-Fty9Huqm12OYueU3uLJl3uvBUl5BvEyPfvw8+rLiNx9iftdEattM8C+268eAbIRRSLSOVXlWsJH4brlc6QZYYw==}
-    dependencies:
-      '@nx/devkit': 18.3.4(nx@18.3.4)
-    transitivePeerDependencies:
-      - nx
-    dev: true
-
   /@nrwl/devkit@18.3.4(nx@18.3.5):
     resolution: {integrity: sha512-Fty9Huqm12OYueU3uLJl3uvBUl5BvEyPfvw8+rLiNx9iftdEattM8C+268eAbIRRSLSOVXlWsJH4brlc6QZYYw==}
     dependencies:
@@ -4181,7 +4176,7 @@ packages:
     peerDependencies:
       nx: '>= 16 <= 19'
     dependencies:
-      '@nrwl/devkit': 18.3.4(nx@18.3.4)
+      '@nrwl/devkit': 18.3.4(nx@18.3.5)
       ejs: 3.1.10
       enquirer: 2.3.6
       ignore: 5.3.1
@@ -4898,7 +4893,7 @@ packages:
       nocache: 3.0.4
       pretty-format: 26.6.2
       serve-static: 1.15.0
-      ws: 6.2.2
+      ws: 6.2.3
     transitivePeerDependencies:
       - bufferutil
       - encoding
@@ -5092,7 +5087,7 @@ packages:
       selfsigned: 2.4.1
       serve-static: 1.15.0
       temp-dir: 2.0.0
-      ws: 6.2.2
+      ws: 6.2.3
     transitivePeerDependencies:
       - bufferutil
       - encoding
@@ -6903,6 +6898,7 @@ packages:
 
   /ajv@8.14.0:
     resolution: {integrity: sha512-oYs1UUtO97ZO2lJ4bwnWeQW8/zvOIQLGKcvPTsWmvc2SYgBb+upuNS5NxoLaMU4h8Ju3Nbj6Cq8mD2LQoqVKFA==}
+    requiresBuild: true
     dependencies:
       fast-deep-equal: 3.1.3
       json-schema-traverse: 1.0.0
@@ -8081,6 +8077,7 @@ packages:
   /cosmiconfig-typescript-loader@5.0.0(@types/node@20.13.0)(cosmiconfig@9.0.0)(typescript@5.4.5):
     resolution: {integrity: sha512-+8cK7jRAReYkMwMiG+bxhcNKiHJDM6bR9FD/nGBXOWdMLuYawjF5cGrtLilJ+LGd3ZjCXnJjR5DkfWPoIVlqJA==}
     engines: {node: '>=v16'}
+    requiresBuild: true
     peerDependencies:
       '@types/node': '*'
       cosmiconfig: '>=8.2'
@@ -9958,6 +9955,7 @@ packages:
   /global-directory@4.0.1:
     resolution: {integrity: sha512-wHTUcDUoZ1H5/0iVqEudYW4/kAlN5cZ3j/bXn0Dpbizl9iaUVeWSHqiOjsgk6OW2bkLclbBjzewBz6weQ1zA2Q==}
     engines: {node: '>=18'}
+    requiresBuild: true
     dependencies:
       ini: 4.1.1
     dev: false
@@ -10263,6 +10261,7 @@ packages:
 
   /import-meta-resolve@4.1.0:
     resolution: {integrity: sha512-I6fiaX09Xivtk+THaMfAwnA3MVA5Big1WHF1Dfx9hFuvNIWpXnorlkzhcQf6ehrqQiiZECRt1poOAkPmer3ruw==}
+    requiresBuild: true
     dev: false
 
   /imurmurhash@0.1.4:
@@ -10286,6 +10285,7 @@ packages:
   /ini@4.1.1:
     resolution: {integrity: sha512-QQnnxNyfvmHFIsj7gkPcYymR8Jdw/o7mp5ZFihxn6h8Ci6fh3Dx4E1gPjpQEpIuPo9XVNY/ZUwh4BPMjGyL01g==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
+    requiresBuild: true
     dev: false
 
   /inquirer@8.2.5:
@@ -11177,6 +11177,7 @@ packages:
   /jiti@1.21.0:
     resolution: {integrity: sha512-gFqAIbuKyyso/3G2qhiO2OM6shY6EPP/R0+mkDbyspxKazh8BXDC5FiFsUjlczgdNz/vfra0da2y+aHrusLG/Q==}
     hasBin: true
+    requiresBuild: true
     dev: false
 
   /joi@17.13.1:
@@ -11578,6 +11579,7 @@ packages:
 
   /lodash.mergewith@4.6.2:
     resolution: {integrity: sha512-GK3g5RPZWTRSeLSpgP8Xhra+pnjBC56q9FZYe1d5RN3TJ35dbkGy3YqBSMbyCrlbi+CM9Z3Jk5yTL7RCsqboyQ==}
+    requiresBuild: true
     dev: false
 
   /lodash.once@4.1.1:
@@ -11601,6 +11603,7 @@ packages:
 
   /lodash.uniq@4.5.0:
     resolution: {integrity: sha512-xfBaXQd9ryd9dlSDvnvI0lvxfLJlYAZzXomUYzLKtUeOQvOP5piqAWuGtrhWeqaXK9hhoM/iyJc5AV+XfsX3HQ==}
+    requiresBuild: true
     dev: false
 
   /lodash.upperfirst@4.3.1:
@@ -13265,7 +13268,7 @@ packages:
       scheduler: 0.24.0-canary-efb381bbf-20230505
       stacktrace-parser: 0.1.10
       whatwg-fetch: 3.6.20
-      ws: 6.2.2
+      ws: 6.2.3
       yargs: 17.7.2
     transitivePeerDependencies:
       - '@babel/core'
@@ -15477,8 +15480,8 @@ packages:
       imurmurhash: 0.1.4
       signal-exit: 3.0.7
 
-  /ws@6.2.2:
-    resolution: {integrity: sha512-zmhltoSR8u1cnDsD43TX59mzoMZsLKqUweyYBAIvTngR3shc0W6aOZylZmq/7hqyVxPdi+5Ud2QInblgyE72fw==}
+  /ws@6.2.3:
+    resolution: {integrity: sha512-jmTjYU0j60B+vHey6TfR3Z7RD61z/hmxBS3VMSGIrroOWXQEneK1zNuotOUrGyBHQj0yrpsLHPWtigEFd13ndA==}
     peerDependencies:
       bufferutil: ^4.0.1
       utf-8-validate: ^5.0.2
