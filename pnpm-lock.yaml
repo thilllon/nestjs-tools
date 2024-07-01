@@ -168,8 +168,8 @@ importers:
         specifier: ^3.3.2
         version: 3.3.2
       pubnub:
-        specifier: ^8.0.1
-        version: 8.2.1(react-native@0.74.1(@babel/core@7.24.7)(@babel/preset-env@7.24.6(@babel/core@7.24.7))(@types/react@18.3.3)(react@18.3.1))
+        specifier: ^8.2.4
+        version: 8.2.4(react-native@0.74.1(@babel/core@7.24.7)(@babel/preset-env@7.24.6(@babel/core@7.24.7))(@types/react@18.3.3)(react@18.3.1))
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -6830,8 +6830,8 @@ packages:
   psl@1.9.0:
     resolution: {integrity: sha512-E/ZsdU4HLs/68gYzgGTkMicWTLPdAftJLfJFlLUAAKZGkStNU72sZjT66SnMDVOfOWY/YAoiD7Jxa9iHvngcag==}
 
-  pubnub@8.2.1:
-    resolution: {integrity: sha512-5p7jYxygBaDJ6knP3b9apgfITYXUZS56Xnpdr9JddVKUEcmHA4tSMcLk3zhf2rKdNyiZSFiAeWy4T1ZvNrWZHg==}
+  pubnub@8.2.4:
+    resolution: {integrity: sha512-NlA1Kk6f1CfI5n1yNB5hICwDSIWXaOyjHwEm0jmxPbAS+Mj8+WVeUZBomDIrTS870r37ynT9BUkr71gHWUq7Xg==}
 
   pump@2.0.1:
     resolution: {integrity: sha512-ruPMNRkN3MHP1cWJc9OWr+T/xDP0jhXYCLfJcBuX54hhfIBnaQmAUMfDcG4DM5UMWByBbJY69QSphm3jtDKIkA==}
@@ -16980,7 +16980,7 @@ snapshots:
 
   psl@1.9.0: {}
 
-  pubnub@8.2.1(react-native@0.74.1(@babel/core@7.24.7)(@babel/preset-env@7.24.6(@babel/core@7.24.7))(@types/react@18.3.3)(react@18.3.1)):
+  pubnub@8.2.4(react-native@0.74.1(@babel/core@7.24.7)(@babel/preset-env@7.24.6(@babel/core@7.24.7))(@types/react@18.3.3)(react@18.3.1)):
     dependencies:
       agentkeepalive: 3.5.3
       buffer: 6.0.3
