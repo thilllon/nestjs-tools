@@ -22,7 +22,7 @@
     "@nestjs/platform-express": "^10.3.9",
     "@nestjs/schematics": "^10.1.1",
     "@nestjs/testing": "^10.3.8",
-    "@nx/devkit": "^18.3.4",
+    "@nx/devkit": "^19.5.4",
     "@nx/eslint-plugin": "^18.3.4",
     "@nx/js": "^18.3.4",
     "@nx/linter": "^18.3.4",
