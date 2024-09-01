@@ -26,7 +26,7 @@
     "@nx/eslint-plugin": "^18.3.4",
     "@nx/js": "^18.3.4",
     "@nx/linter": "^18.3.4",
-    "@nx/nest": "^18.3.4",
+    "@nx/nest": "^19.6.4",
     "@nx/vite": "^18.3.4",
     "@nx/workspace": "^18.3.4",
     "@sendgrid/client": "^8.1.3",
