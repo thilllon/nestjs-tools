@@ -1,5 +1,0 @@
-{
-  "ignorePatterns": ["**/*"],
-  "overrides": [],
-  "extends": ["./.eslintrc.base.json"]
-}
