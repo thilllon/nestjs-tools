@@ -1,24 +1,30 @@
 {
-  "name": "nestjs-azure-storage-blob",
-  "version": "0.0.1",
-  "dependencies": {
-    "tslib": "^2.3.0"
-  },
-  "type": "commonjs",
-  "main": "./src/index.js",
-  "typings": "./src/index.d.ts",
-  "keywords": [
-    "nest",
-    "nestjs",
-    "storage",
-    "sas",
-    "blobSAS",
-    "containerSAS",
-    "accountSAS",
-    "azure",
-    "presigned url",
-    "uplaod",
-    "@azure/storage-blob",
-    "@nest/azure-storage"
-  ]
+	"name": "nestjs-azure-storage-blob",
+	"version": "0.0.1",
+	"description": "A NestJS module for Azure Storage Blob",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/thilllon/nestjs-tools.git"
+	},
+	"homepage": "https://github.com/thilllon/nestjs-tools/tree/main/packages/nestjs-azure-storage-blob",
+	"dependencies": {
+		"tslib": "^2.3.0"
+	},
+	"type": "commonjs",
+	"main": "./src/index.js",
+	"typings": "./src/index.d.ts",
+	"keywords": [
+		"nest",
+		"nestjs",
+		"storage",
+		"sas",
+		"blobSAS",
+		"containerSAS",
+		"accountSAS",
+		"azure",
+		"presigned url",
+		"uplaod",
+		"@azure/storage-blob",
+		"@nest/azure-storage"
+	]
 }
