@@ -1,6 +1,6 @@
 {
 	"name": "nestjs-drizzle-pg",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "A NestJS module for Drizzle ORM with PostgreSQL",
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
@@ -9,7 +9,12 @@
 		"url": "https://github.com/thilllon/nestjs-tools.git"
 	},
 	"homepage": "https://github.com/thilllon/nestjs-tools/tree/main/packages/nestjs-drizzle-pg",
-	"keywords": ["nestjs", "drizzle", "pg", "node-postgres"],
+	"keywords": [
+		"nestjs",
+		"drizzle",
+		"pg",
+		"node-postgres"
+	],
 	"author": "thilllon",
 	"license": "ISC",
 	"scripts": {
