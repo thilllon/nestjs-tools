@@ -13,6 +13,7 @@
 	"author": "thilllon",
 	"license": "ISC",
 	"scripts": {
+		"release": "release-it",
 		"build": "tsc",
 		"test": "vitest run"
 	},
