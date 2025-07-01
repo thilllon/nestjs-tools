@@ -7,23 +7,13 @@ settings:
 importers:
 
   .:
-    dependencies:
-      '@nestjs/common':
-        specifier: ^11.1.2
-        version: 11.1.2(reflect-metadata@0.2.2)(rxjs@7.8.2)
-      drizzle-orm:
-        specifier: ^0.44.1
-        version: 0.44.1(@types/pg@8.15.4)(pg@8.16.0)
-      pg:
-        specifier: ^8.16.0
-        version: 8.16.0
     devDependencies:
       '@biomejs/biome':
         specifier: ^1.9.4
         version: 1.9.4
       prettier:
-        specifier: ^3.5.3
-        version: 3.5.3
+        specifier: ^3.6.2
+        version: 3.6.2
       turbo:
         specifier: ^2.5.4
         version: 2.5.4
@@ -40,32 +30,7 @@ importers:
   packages/nestjs-drizzle-pg:
     dependencies:
       '@nestjs/common':
-        specifier: ^10 || ^11 || ^12
-        version: 11.1.2(reflect-metadata@0.2.2)(rxjs@7.8.2)
-      drizzle-orm:
-        specifier: '>=0.40'
-        version: 0.44.1(@types/pg@8.15.4)(pg@8.16.0)
-      pg:
-        specifier: ^8
-        version: 8.16.0
-    devDependencies:
-      '@types/pg':
-        specifier: ^8.15.4
-        version: 8.15.4
-      release-it:
-        specifier: ^19.0.3
-        version: 19.0.3(@types/node@22.15.3)
-      typescript:
-        specifier: 5.8.2
-        version: 5.8.2
-      vitest:
-        specifier: ^3.1.4
-        version: 3.1.4(@types/node@22.15.3)(jiti@2.4.2)
-
-  packages/nestjs-drizzle-postgres-js:
-    dependencies:
-      '@nestjs/common':
-        specifier: ^11
+        specifier: ^10 || ^11
         version: 11.1.2(reflect-metadata@0.2.2)(rxjs@7.8.2)
       drizzle-orm:
         specifier: '>=0.40'
@@ -1111,6 +1076,7 @@ packages:
 
   lodash.get@4.4.2:
     resolution: {integrity: sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ==}
+    deprecated: This package is deprecated. Use the optional chaining (?.) operator instead.
 
   lodash.isplainobject@4.0.6:
     resolution: {integrity: sha512-oSXzaWypCMHkPC3NvBEaPHf0KsA5mvPrOPgQWDsbg8n7orZ290M0BmC/jgRZ4vcJ6DTAhjrsSYgdsW/F+MFOBA==}
@@ -1324,9 +1290,10 @@ packages:
     resolution: {integrity: sha512-9ZhXKM/rw350N1ovuWHbGxnGh/SNJ4cnxHiM0rxE4VN41wsg8P8zWn9hv/buK00RP4WvlOyr/RBDiptyxVbkZQ==}
     engines: {node: '>=0.10.0'}
 
-  prettier@3.5.3:
-    resolution: {integrity: sha512-QQtaxnoDJeAkDvDKWCLiwIXkTgRhwYDEQCghU9Z6q03iyek/rxRh/2lC3HB7P8sWT2xC/y5JDctPLBIGzHKbhw==}
+  prettier@3.6.2:
+    resolution: {integrity: sha512-I7AIg5boAr5R0FFtJ6rCfD+LFsWHp81dolrFD8S79U9tb8Az2nGrJncnMSnys+bpQJfRUzqs9hnA81OAA3hCuQ==}
     engines: {node: '>=14'}
+    hasBin: true
 
   protocols@2.0.2:
     resolution: {integrity: sha512-hHVTzba3wboROl0/aWRRG9dMytgH6ow//STBZh43l/wQgmMhYhOFi0EHWAPtoCz9IAUymsyP0TSBHkhgMEGNnQ==}
@@ -2658,7 +2625,7 @@ snapshots:
     dependencies:
       xtend: 4.0.2
 
-  prettier@3.5.3: {}
+  prettier@3.6.2: {}
 
   protocols@2.0.2: {}
 
