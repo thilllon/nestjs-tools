@@ -7,16 +7,6 @@ settings:
 importers:
 
   .:
-    dependencies:
-      '@nestjs/common':
-        specifier: ^11.1.2
-        version: 11.1.2(reflect-metadata@0.2.2)(rxjs@7.8.2)
-      drizzle-orm:
-        specifier: ^0.44.1
-        version: 0.44.1(@types/pg@8.15.4)(pg@8.16.0)
-      pg:
-        specifier: ^8.16.0
-        version: 8.16.0
     devDependencies:
       '@biomejs/biome':
         specifier: ^1.9.4
@@ -28,8 +18,8 @@ importers:
         specifier: ^2.5.4
         version: 2.5.4
       typescript:
-        specifier: 5.8.2
-        version: 5.8.2
+        specifier: 5.8.3
+        version: 5.8.3
 
   packages/nestjs-azure-storage-blob:
     dependencies:
@@ -40,7 +30,7 @@ importers:
   packages/nestjs-drizzle-pg:
     dependencies:
       '@nestjs/common':
-        specifier: ^10 || ^11 || ^12
+        specifier: ^10 || ^11
         version: 11.1.2(reflect-metadata@0.2.2)(rxjs@7.8.2)
       drizzle-orm:
         specifier: '>=0.40'
@@ -56,33 +46,8 @@ importers:
         specifier: ^19.0.3
         version: 19.0.3(@types/node@22.15.3)
       typescript:
-        specifier: 5.8.2
-        version: 5.8.2
-      vitest:
-        specifier: ^3.1.4
-        version: 3.1.4(@types/node@22.15.3)(jiti@2.4.2)
-
-  packages/nestjs-drizzle-postgres-js:
-    dependencies:
-      '@nestjs/common':
-        specifier: ^11
-        version: 11.1.2(reflect-metadata@0.2.2)(rxjs@7.8.2)
-      drizzle-orm:
-        specifier: '>=0.40'
-        version: 0.44.1(@types/pg@8.15.4)(pg@8.16.0)
-      pg:
-        specifier: ^8
-        version: 8.16.0
-    devDependencies:
-      '@types/pg':
-        specifier: ^8.15.4
-        version: 8.15.4
-      release-it:
-        specifier: ^19.0.3
-        version: 19.0.3(@types/node@22.15.3)
-      typescript:
-        specifier: 5.8.2
-        version: 5.8.2
+        specifier: 5.8.3
+        version: 5.8.3
       vitest:
         specifier: ^3.1.4
         version: 3.1.4(@types/node@22.15.3)(jiti@2.4.2)
@@ -1111,6 +1076,7 @@ packages:
 
   lodash.get@4.4.2:
     resolution: {integrity: sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ==}
+    deprecated: This package is deprecated. Use the optional chaining (?.) operator instead.
 
   lodash.isplainobject@4.0.6:
     resolution: {integrity: sha512-oSXzaWypCMHkPC3NvBEaPHf0KsA5mvPrOPgQWDsbg8n7orZ290M0BmC/jgRZ4vcJ6DTAhjrsSYgdsW/F+MFOBA==}
@@ -1536,8 +1502,8 @@ packages:
     resolution: {integrity: sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==}
     engines: {node: '>=12.20'}
 
-  typescript@5.8.2:
-    resolution: {integrity: sha512-aJn6wq13/afZp/jT9QZmwEjDqqvSGp1VT5GVg+f/t6/oVyrgXM6BY1h9BRh/O5p3PlUPAe+WuiEZOmb/49RqoQ==}
+  typescript@5.8.3:
+    resolution: {integrity: sha512-p1diW6TqL9L07nNxvRMM7hMMw4c5XOo/1ibL4aAIGmSAt9slTE1Xgw5KWuof2uTOvCg9BY7ZRi+GaF+7sfgPeQ==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -2886,7 +2852,7 @@ snapshots:
 
   type-fest@2.19.0: {}
 
-  typescript@5.8.2: {}
+  typescript@5.8.3: {}
 
   uid@2.0.2:
     dependencies:
