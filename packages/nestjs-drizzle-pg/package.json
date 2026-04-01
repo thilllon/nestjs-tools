@@ -25,7 +25,7 @@
 	"devDependencies": {
 		"@types/pg": "^8.20.0",
 		"release-it": "^19.2.4",
-		"typescript": "5.9.3",
+		"typescript": "6.0.2",
 		"vitest": "^3.1.4"
 	},
 	"peerDependencies": {
